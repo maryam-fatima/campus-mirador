@@ -49,7 +49,7 @@ class _ChatScreenState extends State<ChatScreen> {
         prompt: chatMessage.text, model: kTranslateModelV3, max_tokens: 200);
 
     subscription = chatGPT!
-        .builder('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',
+        .builder('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',
             orgId: '')
         .onCompleteStream(request: request)
         .listen((response) {
@@ -58,8 +58,12 @@ class _ChatScreenState extends State<ChatScreen> {
 
       setState(() {
         isTyping = false;
-        print(response.choices[0].text);
-        _messages.insert(0, botMessage);
+        try {
+          print(response.choices[0].text);
+          _messages.insert(0, botMessage);
+        } catch (e) {
+          print('Failed');
+        }
       });
     });
   }
