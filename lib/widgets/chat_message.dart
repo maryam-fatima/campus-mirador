@@ -14,24 +14,28 @@ class ChatMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
           padding: const EdgeInsets.only(right: 13),
-          child: CircleAvatar(
-            child: Text(sender[0]),
+          child: Container(
+            height: 38,
+            width: 55,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(9),
+              color: sender == 'user' ? Colors.blue[200] : Colors.red[50],
+            ),
+            child: Center(
+              child: Text(
+                sender,
+                style: TextStyle(
+                    color: Colors.black, fontSize: sender == 'user' ? 14 : 30),
+              ),
+            ),
           ),
         ),
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                sender,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Container(margin: EdgeInsets.only(top: 4), child: Text(text)),
-            ],
-          ),
+          child: SelectableText(text),
         ),
       ],
     );

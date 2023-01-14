@@ -1,8 +1,12 @@
+import 'dart:async';
+
+import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:chatbot/widgets/chat_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:progress_indicators/progress_indicators.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -14,15 +18,50 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   TextEditingController _inputMessage = TextEditingController();
   List<ChatMessage> _messages = [];
+  ChatGPT? chatGPT;
+
+  StreamSubscription? subscription;
+  bool isTyping = false;
+
+  @override
+  void initState() {
+    chatGPT = ChatGPT.instance;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    subscription!.cancel();
+    super.dispose();
+  }
 
   void sendMessage() {
     ChatMessage chatMessage =
-        ChatMessage(text: _inputMessage.text, sender: "Fahim");
+        ChatMessage(text: _inputMessage.text, sender: "user");
 
     setState(() {
       _messages.insert(0, chatMessage);
+      isTyping = true;
     });
     _inputMessage.clear();
+
+    final request = CompleteReq(
+        prompt: chatMessage.text, model: kTranslateModelV3, max_tokens: 200);
+
+    subscription = chatGPT!
+        .builder('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',
+            orgId: '')
+        .onCompleteStream(request: request)
+        .listen((response) {
+      ChatMessage botMessage =
+          ChatMessage(text: response!.choices[0].text, sender: "🤖");
+
+      setState(() {
+        isTyping = false;
+        print(response.choices[0].text);
+        _messages.insert(0, botMessage);
+      });
+    });
   }
 
   @override
@@ -47,7 +86,10 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
         ),
-        //Flexible(child: Container(height: double.infinity)),
+        if (isTyping)
+          JumpingDotsProgressIndicator(
+            fontSize: 48.0,
+          ),
         customTextFieldWIdget(),
       ]),
     );
@@ -63,6 +105,7 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             Expanded(
               child: TextField(
+                autofocus: true,
                 controller: _inputMessage,
                 onSubmitted: (value) => sendMessage(),
                 decoration: InputDecoration(
