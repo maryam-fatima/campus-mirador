@@ -49,7 +49,7 @@ class _ChatScreenState extends State<ChatScreen> {
         prompt: chatMessage.text, model: kTranslateModelV3, max_tokens: 200);
 
     subscription = chatGPT!
-        .builder('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',
+        .builder('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',
             orgId: '')
         .onCompleteStream(request: request)
         .listen((response) {
@@ -72,9 +72,9 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chatbot Playground'),
+        title: Text('Mirador HelpGPT'),
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 55, 201, 165),
+        backgroundColor: Colors.teal.shade900,
       ),
       body: Column(children: [
         Expanded(
