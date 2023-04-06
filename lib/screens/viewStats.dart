@@ -195,21 +195,21 @@ class gallery extends StatelessWidget {
                 width: 20,
               ),
               ImageWithText(
-                Url: 'images/SEECS_UG.jpg',
+                Url: 'images/SEECS_UG.JPG',
                 description: 'UG',
               ),
               SizedBox(
-                width: 30,
+                width: 25,
               ),
               ImageWithText(
-                Url: 'images/SEECS_PG.jpg',
+                Url: 'images/SEECS_PG.JPG',
                 description: 'PG',
               ),
               SizedBox(
-                width: 30,
+                width: 25,
               ),
               ImageWithText(
-                Url: 'images/IAEC.jpg',
+                Url: 'images/IAEC.JPG',
                 description: 'IAEC',
               ),
             ],
@@ -381,8 +381,45 @@ showAlertDialog(BuildContext context) {
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
     title: Text("Important Links"),
-    content: Row(
-      children: [Text('Lms : '), Text('Qalam : '), Text('Support desk : ')],
+    content: Column(
+      children: [
+        Text(
+          'Lms : https://lms.nust.edu.pk/portal/',
+          style: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              fontSize: 14,
+              color: Colors.teal,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          'Qalam : https://qalam.nust.edu.pk/website/info',
+          style: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              fontSize: 14,
+              color: Colors.teal,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          'Support desk : http://support.seecs.edu.pk/',
+          style: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              fontSize: 14,
+              color: Colors.teal,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        )
+      ],
     ),
     actions: [
       okButton,

@@ -138,6 +138,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ChatScreen()),
+                    );
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: Colors.black54,
+                    radius: 30,
+                    child: Image(
+                      image: AssetImage('images/bot.png'),
+                      width: 99,
+                    ),
+                  ),
+                ),
               ],
             )
           ],
