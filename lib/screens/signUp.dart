@@ -14,7 +14,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   Color update_color = Colors.grey;
-
+  bool _obscureText = false;
   String _email = "";
   String _password = "";
   String _status = "";
@@ -95,6 +95,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             width: 1.5, color: Colors.grey.shade500)),
                     labelText: ' Password',
                     hintText: 'Enter Your Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                        size: 20,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                    ),
                     icon: Icon(Icons.lock)),
                 onChanged: (value) {
                   setState(() {
@@ -230,7 +241,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           width: 8,
                         ),
                         Text(
-                          "SIGNUP WITH VISITOR",
+                          "SIGNUP AS VISITOR",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: Colors.white,

@@ -5,9 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'chat_screen.dart';
 import 'feedback.dart';
+import 'package:chatbot/screens/Welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import '../controllers/dataController.dart';
-import 'package:chatbot/screens/Welcome.dart';
 
 class AROverlay extends StatefulWidget {
   const AROverlay({Key? key}) : super(key: key);
@@ -41,12 +41,22 @@ class _AROverlayState extends State<AROverlay> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ExploreMore()));
             },
-            child: Text('Explore More'),
+            child: Text(
+              'Explore More',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          SizedBox(
+            height: 240,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary:
+                      Colors.teal.shade900, // set the background color to blue
+                ),
                 child: Text("Logout"),
                 onPressed: () async {
                   await FirebaseServices().googleSignOut();
@@ -62,7 +72,7 @@ class _AROverlayState extends State<AROverlay> {
                   );
                 },
                 child: CircleAvatar(
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.teal.shade100,
                   radius: 40,
                   child: Image(
                     image: AssetImage('images/feed.png'),
@@ -78,7 +88,7 @@ class _AROverlayState extends State<AROverlay> {
                   );
                 },
                 child: CircleAvatar(
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.teal.shade100,
                   radius: 40,
                   child: Image(
                     image: AssetImage('images/bot.png'),

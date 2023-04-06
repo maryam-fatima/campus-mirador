@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _obscureText = false;
   Color update_color = Colors.grey;
   Color update_color_forgot_password = Colors.grey;
   String _email = "";
@@ -97,6 +98,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 1.5, color: Colors.grey.shade500)),
                     labelText: ' Password',
                     hintText: 'Enter Your Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                        size: 20,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                    ),
                     icon: Icon(Icons.lock)),
                 onChanged: (value) {
                   setState(() {
@@ -241,7 +253,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: 10,
                         ),
                         Text(
-                          "LOGIN WITH VISITOR",
+                          "LOGIN AS VISITOR",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: Colors.white,

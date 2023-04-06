@@ -54,9 +54,6 @@ class viewStats extends StatelessWidget {
                 height: 15,
               ),
               ImportantLinks(),
-              SizedBox(
-                height: 40,
-              ),
               Footer(),
             ],
           ),
@@ -348,7 +345,9 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-        color: Colors.teal.shade50, width: screenWidth, child: Container());
+      color: Colors.teal.shade50,
+      width: screenWidth,
+    );
   }
 }
 

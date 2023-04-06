@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Hi , Urooj',
+                      'Hi , User',
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                               fontSize: 17,
@@ -115,6 +115,10 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors
+                        .teal.shade900, // set the background color to blue
+                  ),
                   child: Text("Logout"),
                   onPressed: () async {
                     await FirebaseServices().googleSignOut();
