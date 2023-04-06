@@ -118,7 +118,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text("Logout"),
                   onPressed: () async {
                     await FirebaseServices().googleSignOut();
-                    Navigator.push(context,
+                    Navigator.pop(context);
+                    Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => WelcomePage()));
                   },
                 ),
