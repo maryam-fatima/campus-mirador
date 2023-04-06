@@ -10,6 +10,7 @@ import 'ScanBuilding.dart';
 import 'viewStats.dart';
 import 'HelpPage.dart';
 import 'chat_screen.dart';
+import 'feedback.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -125,15 +126,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const ChatScreen()),
+                      MaterialPageRoute(builder: (context) => FeedbackScreen()),
                     );
                   },
                   child: CircleAvatar(
-                    backgroundColor: Colors.black54,
-                    radius: 30,
+                    backgroundColor: Colors.white,
+                    radius: 40,
                     child: Image(
-                      image: AssetImage('images/bot.png'),
+                      image: AssetImage('images/feed.png'),
                       width: 99,
                     ),
                   ),
@@ -147,8 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   child: CircleAvatar(
-                    backgroundColor: Colors.black54,
-                    radius: 30,
+                    backgroundColor: Colors.white,
+                    radius: 40,
                     child: Image(
                       image: AssetImage('images/bot.png'),
                       width: 99,

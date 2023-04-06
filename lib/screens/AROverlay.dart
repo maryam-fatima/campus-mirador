@@ -1,4 +1,10 @@
+import 'package:chatbot/screens/exploreMore.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../controllers/dataController.dart';
 
 class AROverlay extends StatefulWidget {
   const AROverlay({Key? key}) : super(key: key);
@@ -8,6 +14,9 @@ class AROverlay extends StatefulWidget {
 }
 
 class _AROverlayState extends State<AROverlay> {
+  DataController _dataController =
+      DataController(); // Create an instance of DataController
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,16 +24,12 @@ class _AROverlayState extends State<AROverlay> {
         backgroundColor: Colors.teal.shade900,
         title: Text('Mirador'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Align(
-              alignment: Alignment.center,
-              child: Text(
-                'AR OVERLAY HERE',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-              )),
-        ],
+      body: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ExploreMore()));
+        },
+        child: Text('Explore More'),
       ),
     );
   }
