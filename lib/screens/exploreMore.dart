@@ -36,7 +36,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 50,
+                      height: 30,
                     ),
                     Text(
                       'SEECS UG Block',
@@ -70,7 +70,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -78,7 +78,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 17,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -103,7 +103,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -111,7 +111,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 17,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -136,7 +136,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -144,7 +144,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 17,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -177,7 +177,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -185,7 +185,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 17,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -210,7 +210,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -218,7 +218,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 17,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -243,7 +243,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -251,7 +251,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 17,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -284,7 +284,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -292,7 +292,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 17,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -317,7 +317,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -325,7 +325,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 17,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -350,7 +350,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 32,
+                                          fontSize: 27,
                                           color: Colors.white)),
                                 ),
                                 Text(
@@ -358,7 +358,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 15,
+                                          fontSize: 14,
                                           color: Colors.teal.shade50)),
                                 )
                               ],

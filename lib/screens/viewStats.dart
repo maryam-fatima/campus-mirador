@@ -28,14 +28,14 @@ class viewStats extends StatelessWidget {
                         Value: 1559,
                       ),
                       SizedBox(
-                        width: 50,
+                        width: 25,
                       ),
                       peopleCount(
                         Name: "Postgraduates",
                         Value: 1559,
                       ),
                       SizedBox(
-                        width: 50,
+                        width: 25,
                       ),
                       peopleCount(
                         Name: "Faculty",
@@ -82,7 +82,7 @@ class AboutBuildingContainer extends StatelessWidget {
               ' Welcome to Seecs',
               style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
-                  fontSize: 22,
+                  fontSize: 18,
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                 ),
@@ -174,7 +174,7 @@ class gallery extends StatelessWidget {
               ' Departments',
               style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
-                  fontSize: 22,
+                  fontSize: 18,
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                 ),
@@ -187,7 +187,7 @@ class gallery extends StatelessWidget {
           Row(
             children: [
               SizedBox(
-                width: 20,
+                width: 10,
               ),
               ImageWithText(
                 Url: 'images/SEECS_UG.JPG',
@@ -266,7 +266,7 @@ class ImportantLinks extends StatelessWidget {
               ' Important Links',
               style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
-                  fontSize: 22,
+                  fontSize: 18,
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                 ),
@@ -283,7 +283,7 @@ class ImportantLinks extends StatelessWidget {
                 name: "LMS",
               ),
               SizedBox(
-                width: 20,
+                width: 10,
               ),
               LinkToLoc(
                 name: "Qalam",

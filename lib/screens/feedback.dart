@@ -120,14 +120,14 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   "Client's Feedback",
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
-                      fontSize: 22,
+                      fontSize: 19,
                       color: Colors.teal,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 16,
                 ),
                 getFeedback(
                   username: feedbackMap.keys.elementAt(1),
@@ -157,8 +157,8 @@ class getFeedback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
-      height: 120,
+      width: 330,
+      height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Colors.teal.shade400,
@@ -172,13 +172,13 @@ class getFeedback extends StatelessWidget {
               child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 CircleAvatar(
                     backgroundColor: Colors.teal.shade900,
-                    radius: 20,
+                    radius: 15,
                     child: Icon(
                       Icons.account_circle_outlined,
-                      size: 20,
+                      size: 10,
                     )),
                 SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Column(
                   children: [
@@ -191,10 +191,10 @@ class getFeedback extends StatelessWidget {
                           textStyle: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
-                              fontSize: 15)),
+                              fontSize: 12)),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 7,
                     ),
                     Text(
                       'Response : $feedback',
@@ -203,37 +203,37 @@ class getFeedback extends StatelessWidget {
                           textStyle: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
-                              fontSize: 15)),
+                              fontSize: 12)),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 7,
                     ),
                     Row(
                       children: [
                         Icon(
                           Icons.star,
                           color: Colors.yellowAccent,
-                          size: 20,
+                          size: 12,
                         ),
                         Icon(
                           Icons.star,
                           color: Colors.yellowAccent,
-                          size: 20,
+                          size: 12,
                         ),
                         Icon(
                           Icons.star,
                           color: Colors.yellowAccent,
-                          size: 20,
+                          size: 12,
                         ),
                         Icon(
                           Icons.star,
                           color: Colors.yellowAccent,
-                          size: 20,
+                          size: 12,
                         ),
                         Icon(
                           Icons.star_border,
                           color: Colors.yellowAccent,
-                          size: 20,
+                          size: 12,
                         )
                       ],
                     )
