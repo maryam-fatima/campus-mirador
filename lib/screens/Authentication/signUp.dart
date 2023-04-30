@@ -1,9 +1,15 @@
+// imported the required libraries
 import 'package:flutter/material.dart';
-import 'ScanBuilding.dart';
-import 'home.dart';
+import '../../widgets/AlertClass.dart';
+import '../home.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'login.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+// This screen serves the purpose of signing up the user.
+// It provides the user with two options
+// 1. Either signup via email/username and make him a registered user to our application
+// 2. Or Login as a visitor via gmail - it will be one time only
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -13,6 +19,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  // temp variables that will used throughout this screen
   Color update_color = Colors.grey;
   bool _obscureText = false;
   String _email = "";
@@ -64,7 +71,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
               ),
-              TextField(
+              TextFormField(
+                validator: (textValue) {
+                  if (textValue == null || textValue.isEmpty) {
+                    return 'Email is required!';
+                  }
+                  if (!RegExp(r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b',
+                          caseSensitive: false)
+                      .hasMatch(textValue)) {
+                    return 'Please enter a valid email address';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white70,
@@ -72,7 +90,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         borderRadius: BorderRadius.circular(25),
                         borderSide: BorderSide(
                             width: 1.5, color: Colors.grey.shade500)),
-                    labelText: ' Username ',
+                    labelText: ' Email ',
                     hintText: 'Enter Your email',
                     icon: Icon(Icons.person_2_rounded)),
                 onChanged: (value) {
@@ -85,7 +103,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 height: 20,
               ),
-              TextField(
+              TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Password is required!';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white70,
@@ -118,7 +142,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 height: 20,
               ),
-              TextField(
+              TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Status is required!';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white70,
@@ -171,6 +201,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: TextButton(
                     //yeh sign up wala press hai
                     onPressed: () async {
+                      if (_email.isEmpty ||
+                          _password.isEmpty ||
+                          _status.isEmpty) {
+                        print('EMPTY');
+                        showAlertDialog(context);
+                      } else if (!RegExp(
+                              r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b',
+                              caseSensitive: false)
+                          .hasMatch(_email)) {
+                        showAlertDialog2(context);
+                      }
                       await FirebaseServices()
                           .signUpWithEmailAndPassword(_email, _password);
                       Navigator.push(

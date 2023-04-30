@@ -1,5 +1,9 @@
+// imported the required libraries
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+// This screen is very important , if a user wants to see the stats of NUST and the buildings that in
+// our current case is SEECS UG , SEECS PG , IAEC
 
 class viewStats extends StatelessWidget {
   viewStats({Key? key}) : super(key: key);

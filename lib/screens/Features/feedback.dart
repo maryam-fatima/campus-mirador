@@ -1,6 +1,8 @@
+// imported the required libraries
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// This screen is made with a purpose to get the feedback from our Users , if they encounter any issue or bug
 class FeedbackScreen extends StatefulWidget {
   @override
   _FeedbackScreenState createState() => _FeedbackScreenState();

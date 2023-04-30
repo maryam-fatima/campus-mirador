@@ -1,9 +1,16 @@
+// imported the required libraries
 import 'package:flutter/material.dart';
-import 'home.dart';
+import '../../widgets/AlertClass.dart';
+import '../home.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'HelpPage.dart';
-import 'chat_screen.dart';
+import '../Features/HelpPage.dart';
+import '../Features/chat_screen.dart';
+
+// This screen serves the purpose of Logging In the user.
+// It provides the user with two options
+// 1. Either Login via email/username , it will check whether he/she is a registered user in firebase
+// 2. Or Login as a visitor via gmail - it will be one time only
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,6 +20,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  // temp variables that will used throughout this screen
   bool _obscureText = false;
   Color update_color = Colors.grey;
   Color update_color_forgot_password = Colors.grey;
@@ -67,7 +75,18 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 50,
               ),
-              TextField(
+              TextFormField(
+                validator: (textValue) {
+                  if (textValue == null || textValue.isEmpty) {
+                    return 'Email is required!';
+                  }
+                  if (!RegExp(r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b',
+                          caseSensitive: false)
+                      .hasMatch(textValue)) {
+                    return 'Please enter a valid email address';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white70,
@@ -88,7 +107,13 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 20,
               ),
-              TextField(
+              TextFormField(
+                validator: (textValue) {
+                  if (textValue == null || textValue.isEmpty) {
+                    return 'Password is required!';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white70,
@@ -183,6 +208,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextButton(
                     //yeh login wala hai
                     onPressed: () async {
+                      if (_email.isEmpty || _password.isEmpty) {
+                        print('EMPTY');
+                        showAlertDialog(context);
+                      } else if (!RegExp(
+                              r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b',
+                              caseSensitive: false)
+                          .hasMatch(_email)) {
+                        showAlertDialog2(context);
+                      }
                       await FirebaseServices()
                           .signInWithEmailAndPassword(_email, _password);
                       Navigator.push(

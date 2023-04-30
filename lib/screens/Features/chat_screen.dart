@@ -1,12 +1,13 @@
+// imported the required libraries
 import 'dart:async';
-
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:chatbot/widgets/chat_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:progress_indicators/progress_indicators.dart';
+
+// This screen is Chat-bot screen , It is integrated with the ChatGPT.
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);

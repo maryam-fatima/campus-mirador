@@ -1,16 +1,21 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// imported the required libraries
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Welcome.dart';
-import 'login.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'HelpPage.dart';
-import 'ScanBuilding.dart';
-import 'viewStats.dart';
-import 'HelpPage.dart';
-import 'chat_screen.dart';
-import 'feedback.dart';
+import 'AR Screens/ScanBuilding.dart';
+import 'Features/viewStats.dart';
+import 'Features/chat_screen.dart';
+import 'Features/feedback.dart';
+
+// This screen is Main screen that list all the facilities one can get in
+// our Application that are :
+// 1. Scan the Building
+// 2. See the Stats
+// 3. Feedback Screen
+// 4. Help Screen - integrated with ChatGPT
+// 5. Log out , end the session and move to Welcome Screen
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

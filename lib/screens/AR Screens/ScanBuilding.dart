@@ -1,11 +1,14 @@
+// imported all the required libraies
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'HelpPage.dart';
-import 'chat_screen.dart';
+import '../Features/chat_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'AROverlay.dart';
+
+// This screens direct us to AR Overlay screen , where you will capture the image
+// of the building and at the real time you will get to see the AR Overlay for it
 
 class ScanBuilding extends StatefulWidget {
   const ScanBuilding({Key? key}) : super(key: key);
@@ -17,6 +20,7 @@ class ScanBuilding extends StatefulWidget {
 class _ScanBuildingState extends State<ScanBuilding> {
   File? image;
 
+  // this method will let you pick the image from gallery
   Future pickImage() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -29,6 +33,7 @@ class _ScanBuildingState extends State<ScanBuilding> {
     }
   }
 
+  // this method will let you capture the image from camera
   Future pickImageC() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.camera);

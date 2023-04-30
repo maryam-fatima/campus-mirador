@@ -3,11 +3,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controllers/dataController.dart';
-import 'chat_screen.dart';
-import 'feedback.dart';
+import '../../controllers/dataController.dart';
+import '../Features/chat_screen.dart';
+import '../Features/feedback.dart';
 import 'package:chatbot/screens/Welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
+
+// This screen is responsible for showing the detailed information about the buildings
+// The data is saved in the firebase and we are fetching data using the Model class
 
 DataController _dataController =
     DataController(); // Create an instance of DataController

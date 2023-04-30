@@ -1,13 +1,14 @@
-import 'package:chatbot/screens/exploreMore.dart';
+// imported the required libraries
+import 'package:chatbot/screens/AR%20Screens/exploreMore.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'chat_screen.dart';
-import 'feedback.dart';
+import '../Features/chat_screen.dart';
+import '../Features/feedback.dart';
 import 'package:chatbot/screens/Welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
-import '../controllers/dataController.dart';
+import '../../controllers/dataController.dart';
+
+// This screen is responsible for displaying the AR Overlay of the building
+// that our user will be scanning at a real time
 
 class AROverlay extends StatefulWidget {
   const AROverlay({Key? key}) : super(key: key);

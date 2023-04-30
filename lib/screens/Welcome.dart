@@ -1,7 +1,10 @@
+// imported the required libraries
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'login.dart';
-import 'signUp.dart';
+import 'Authentication/signUp.dart';
+
+// This is a Welcome Page that serves as the start screen to our Application -
+// Campus Mirador
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -83,6 +86,7 @@ class WelcomePage extends StatelessWidget {
                 padding: EdgeInsets.all(9),
                 child: TextButton(
                   onPressed: () {
+                    // Navigation to Signup Screen
                     Navigator.push(
                       context,
                       MaterialPageRoute(
