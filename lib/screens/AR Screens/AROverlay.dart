@@ -23,6 +23,12 @@ class _AROverlayState extends State<AROverlay> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double imageHeight = screenSize.height * 0.35;
+    final double buttonHeight = screenSize.height * 0.1;
+    final double avatarRadius = screenSize.width * 0.2;
+    final double buttonFontSize = screenSize.width * 0.05;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal.shade900,
@@ -32,11 +38,14 @@ class _AROverlayState extends State<AROverlay> {
         children: [
           Image(
             image: AssetImage('images/AROverlay.jpg'),
-            width: 400,
+            height: imageHeight,
+            width: screenSize.width * 0.7,
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.teal.shade900, // set the background color to blue
+              primary: Colors.teal.shade900,
+              minimumSize: Size(screenSize.width * 0.4,
+                  buttonHeight * 0.7), // set the background color to blue
             ),
             onPressed: () {
               Navigator.push(context,
@@ -44,21 +53,25 @@ class _AROverlayState extends State<AROverlay> {
             },
             child: Text(
               'Explore More',
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: buttonFontSize),
             ),
           ),
           SizedBox(
-            height: 240,
+            height: screenSize.height * 0.2,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary:
-                      Colors.teal.shade900, // set the background color to blue
+                  primary: Colors.teal.shade900,
+                  minimumSize: Size(screenSize.width * 0.3,
+                      buttonHeight * 0.5), // set the background color to blue
                 ),
-                child: Text("Logout"),
+                child: Text(
+                  "Logout",
+                  style: TextStyle(fontSize: buttonFontSize * 0.8),
+                ),
                 onPressed: () async {
                   await FirebaseServices().googleSignOut();
                   Navigator.push(context,
@@ -74,10 +87,10 @@ class _AROverlayState extends State<AROverlay> {
                 },
                 child: CircleAvatar(
                   backgroundColor: Colors.teal.shade100,
-                  radius: 40,
+                  radius: avatarRadius * 0.6,
                   child: Image(
                     image: AssetImage('images/feed.png'),
-                    width: 99,
+                    width: avatarRadius * 1,
                   ),
                 ),
               ),
@@ -90,10 +103,10 @@ class _AROverlayState extends State<AROverlay> {
                 },
                 child: CircleAvatar(
                   backgroundColor: Colors.teal.shade100,
-                  radius: 40,
+                  radius: avatarRadius * 0.6,
                   child: Image(
                     image: AssetImage('images/bot.png'),
-                    width: 99,
+                    width: avatarRadius * 1.4,
                   ),
                 ),
               ),

@@ -25,6 +25,12 @@ class ExploreMore extends StatefulWidget {
 class _ExploreMoreState extends State<ExploreMore> {
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double imageHeight = screenSize.height * 0.35;
+    final double buttonHeight = screenSize.height * 0.1;
+    final double avatarRadius = screenSize.width * 0.2;
+    final double buttonFontSize = screenSize.width * 0.05;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal.shade900,
@@ -46,20 +52,21 @@ class _ExploreMoreState extends State<ExploreMore> {
                       style: GoogleFonts.montserrat(
                           textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 25,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.06,
                               color: Colors.teal.shade600)),
                     ),
                     SizedBox(
-                      height: 40,
+                      height: MediaQuery.of(context).size.height * 0.05,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 10),
+                          margin: EdgeInsets.only(left: 8),
                           color: Colors.teal.shade900,
-                          width: 100,
-                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.26,
+                          height: MediaQuery.of(context).size.width * 0.25,
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
@@ -81,7 +88,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -91,8 +101,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                         Container(
                           margin: EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
-                          width: 100,
-                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.26,
+                          height: MediaQuery.of(context).size.width * 0.25,
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
@@ -114,7 +124,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -124,8 +137,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                         Container(
                           margin: EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
-                          width: 100,
-                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.26,
+                          height: MediaQuery.of(context).size.width * 0.25,
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
@@ -147,7 +160,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -165,8 +181,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                         Container(
                           margin: EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
-                          width: 100,
-                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.26,
+                          height: MediaQuery.of(context).size.width * 0.25,
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
@@ -188,7 +204,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -198,8 +217,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                         Container(
                           margin: EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
-                          width: 100,
-                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.26,
+                          height: MediaQuery.of(context).size.width * 0.25,
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
@@ -221,7 +240,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -236,8 +258,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: Container(
                             margin: EdgeInsets.only(left: 10),
                             color: Colors.teal.shade900,
-                            width: 100,
-                            height: 100,
+                            width: MediaQuery.of(context).size.width * 0.26,
+                            height: MediaQuery.of(context).size.width * 0.25,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -254,7 +276,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -272,8 +297,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                         Container(
                           margin: EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
-                          width: 100,
-                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.26,
+                          height: MediaQuery.of(context).size.width * 0.25,
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
@@ -295,7 +320,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -305,8 +333,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                         Container(
                           margin: EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
-                          width: 100,
-                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.26,
+                          height: MediaQuery.of(context).size.width * 0.25,
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
@@ -328,7 +356,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -343,8 +374,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: Container(
                             margin: EdgeInsets.only(left: 10),
                             color: Colors.teal.shade900,
-                            width: 100,
-                            height: 100,
+                            width: MediaQuery.of(context).size.width * 0.26,
+                            height: MediaQuery.of(context).size.width * 0.25,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -361,7 +392,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 14,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -380,10 +414,14 @@ class _ExploreMoreState extends State<ExploreMore> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors
-                        .teal.shade900, // set the background color to blue
+                    primary: Colors.teal.shade900,
+                    minimumSize: Size(screenSize.width * 0.3,
+                        buttonHeight * 0.5), // set the background color to blue
                   ),
-                  child: Text("Logout"),
+                  child: Text(
+                    "Logout",
+                    style: TextStyle(fontSize: buttonFontSize * 0.8),
+                  ),
                   onPressed: () async {
                     await FirebaseServices().googleSignOut();
                     Navigator.push(context,
@@ -399,10 +437,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.teal.shade100,
-                    radius: 40,
+                    radius: avatarRadius * 0.5,
                     child: Image(
                       image: AssetImage('images/feed.png'),
-                      width: 99,
+                      width: avatarRadius * 1,
                     ),
                   ),
                 ),
@@ -416,10 +454,10 @@ class _ExploreMoreState extends State<ExploreMore> {
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.teal.shade100,
-                    radius: 40,
+                    radius: avatarRadius * 0.5,
                     child: Image(
                       image: AssetImage('images/bot.png'),
-                      width: 99,
+                      width: avatarRadius * 1.4,
                     ),
                   ),
                 ),

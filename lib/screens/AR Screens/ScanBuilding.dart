@@ -48,6 +48,13 @@ class _ScanBuildingState extends State<ScanBuilding> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final appBarHeight = AppBar().preferredSize.height;
+    final statusBarHeight = MediaQuery.of(context).padding.top;
+    final screenHeight = size.height - appBarHeight - statusBarHeight;
+    final screenWidth = size.width;
+    final isPortrait = size.height > size.width;
+
     return Scaffold(
       backgroundColor: Colors.teal.shade50,
       appBar: AppBar(
@@ -56,6 +63,10 @@ class _ScanBuildingState extends State<ScanBuilding> {
       ),
       body: Center(
         child: Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.05,
+            vertical: screenHeight * 0.02,
+          ),
           child: Column(
             children: [
               Padding(
@@ -64,7 +75,7 @@ class _ScanBuildingState extends State<ScanBuilding> {
                   'Scanning in Progress',
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                      fontSize: 20,
+                      fontSize: isPortrait ? 20 : 30,
                       color: Colors.teal.shade900,
                       fontWeight: FontWeight.w600,
                     ),
@@ -74,13 +85,11 @@ class _ScanBuildingState extends State<ScanBuilding> {
               image != null
                   ? Image.file(
                       image!,
-                      width: 800,
-                      height: 300,
+                      height: screenHeight * 0.3,
+                      width: screenWidth * 0.8,
                     )
                   : Text('No image selected'),
-              SizedBox(
-                height: 5,
-              ),
+              SizedBox(height: screenHeight * 0.03),
               Container(
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
@@ -95,10 +104,9 @@ class _ScanBuildingState extends State<ScanBuilding> {
                   child: Text(
                     'Select from Gallery',
                     style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: screenWidth * 0.04),
                   ),
                 ),
               ),
@@ -116,10 +124,9 @@ class _ScanBuildingState extends State<ScanBuilding> {
                   child: Text(
                     'Select from Camera',
                     style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: screenWidth * 0.04),
                   ),
                 ),
               ),
@@ -142,15 +149,15 @@ class _ScanBuildingState extends State<ScanBuilding> {
                   child: Text(
                     'Move to AR Overlay',
                     style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: screenWidth * 0.04),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(240, 0, 0, 0),
+                padding: EdgeInsets.fromLTRB(
+                    screenWidth * 0.65, screenWidth * 0.42, 0, 0),
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -160,8 +167,8 @@ class _ScanBuildingState extends State<ScanBuilding> {
                     );
                   },
                   child: CircleAvatar(
-                    backgroundColor: Colors.black54,
-                    radius: 30,
+                    backgroundColor: Colors.teal.shade200,
+                    radius: screenWidth * 0.2,
                     child: Image(
                       image: AssetImage('images/bot.png'),
                       width: 99,
