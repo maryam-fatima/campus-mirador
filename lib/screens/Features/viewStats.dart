@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../widgets/AlertClass.dart';
+import '../../widgets/footer.dart';
+
 // This screen is very important , if a user wants to see the stats of NUST and the buildings that in
 // our current case is SEECS UG , SEECS PG , IAEC
 
@@ -10,6 +13,8 @@ class viewStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal.shade900,
@@ -21,25 +26,25 @@ class viewStats extends StatelessWidget {
               Container(
                 color: Colors.teal.shade100,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.only(left: screenSize.width * 0.03),
                   child: Row(
                     children: [
                       SizedBox(
-                        height: 50,
+                        height: screenSize.height * 0.07,
                       ),
                       peopleCount(
                         Name: "Undergraduates",
                         Value: 1559,
                       ),
                       SizedBox(
-                        width: 25,
+                        width: screenSize.width * 0.14,
                       ),
                       peopleCount(
                         Name: "Postgraduates",
                         Value: 1559,
                       ),
                       SizedBox(
-                        width: 25,
+                        width: screenSize.width * 0.15,
                       ),
                       peopleCount(
                         Name: "Faculty",
@@ -50,7 +55,7 @@ class viewStats extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: screenSize.height * 0.01,
               ),
               AboutBuildingContainer(),
               gallery(),
@@ -71,6 +76,8 @@ class AboutBuildingContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       color: Colors.teal.shade50,
       child: Column(
@@ -80,13 +87,16 @@ class AboutBuildingContainer extends StatelessWidget {
                 'https://seecs.nust.edu.pk/wp-content/uploads/2020/05/seecs-new.jpg'),
             width: screenWidth,
           ),
+          SizedBox(
+            height: screenHeight * 0.02,
+          ),
           Align(
             alignment: Alignment.topLeft,
             child: Text(
               ' Welcome to Seecs',
               style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
-                  fontSize: 18,
+                  fontSize: screenWidth * 0.05,
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                 ),
@@ -104,7 +114,7 @@ class AboutBuildingContainer extends StatelessWidget {
                 'In the current age of rapid progress, only those fired with a passion to excel can aspire for a respectable survival. We at NUST-SEECS are committed to provide world class education and research opportunities in Pakistan. The School offers postgraduate and undergraduate programmes covering the disciplines of electrical engineering, software engineering and computer science. These programmes blending digital systems, communication technologies, power and control systems, Artificial Intelligence, data science, information security, robotics, and other information',
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 10,
+                    fontSize: screenWidth * 0.028,
                     color: Colors.black54,
                   ),
                 ),
@@ -137,6 +147,9 @@ class peopleCount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         Text(
@@ -165,12 +178,15 @@ class gallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       color: Colors.white70,
       child: Column(
         children: [
           SizedBox(
-            height: 10,
+            height: screenHeight * 0.01,
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -178,7 +194,7 @@ class gallery extends StatelessWidget {
               ' Departments',
               style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
-                  fontSize: 18,
+                  fontSize: screenWidth * 0.05,
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                 ),
@@ -186,26 +202,26 @@ class gallery extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: screenHeight * 0.01,
           ),
           Row(
             children: [
               SizedBox(
-                width: 10,
+                width: screenWidth * 0.04,
               ),
               ImageWithText(
                 Url: 'images/SEECS_UG.JPG',
                 description: 'UG',
               ),
               SizedBox(
-                width: 25,
+                width: screenWidth * 0.08,
               ),
               ImageWithText(
                 Url: 'images/SEECS_PG.JPG',
                 description: 'PG',
               ),
               SizedBox(
-                width: 25,
+                width: screenWidth * 0.08,
               ),
               ImageWithText(
                 Url: 'images/IAEC.JPG',
@@ -226,6 +242,9 @@ class ImageWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -257,53 +276,58 @@ class ImportantLinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       color: Colors.teal.shade50,
-      child: Column(
-        children: [
-          SizedBox(
-            height: 5,
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              ' Important Links',
-              style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 5,
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                ' Important Links',
+                style: GoogleFonts.montserrat(
+                  textStyle: TextStyle(
+                    fontSize: screenWidth * 0.05,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              LinkToLoc(
-                name: "LMS",
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              LinkToLoc(
-                name: "Qalam",
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              LinkToLoc(
-                name: "Support",
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20,
-          )
-        ],
+            SizedBox(
+              height: screenHeight * 0.02,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                LinkToLoc(
+                  name: "LMS",
+                ),
+                SizedBox(
+                  width: screenWidth * 0.03,
+                ),
+                LinkToLoc(
+                  name: "Qalam",
+                ),
+                SizedBox(
+                  width: screenWidth * 0.03,
+                ),
+                LinkToLoc(
+                  name: "Support",
+                ),
+              ],
+            ),
+            SizedBox(
+              height: screenHeight * 0.03,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -340,98 +364,4 @@ class LinkToLoc extends StatelessWidget {
           ),
         ));
   }
-}
-
-class Footer extends StatelessWidget {
-  const Footer({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    return Container(
-      color: Colors.teal.shade50,
-      width: screenWidth,
-    );
-  }
-}
-
-class MyAlert extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: ElevatedButton(
-        child: Text('Show alert'),
-        onPressed: () {
-          showAlertDialog(context);
-        },
-      ),
-    );
-  }
-}
-
-showAlertDialog(BuildContext context) {
-  // Create button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () {
-      Navigator.of(context).pop();
-    },
-  );
-
-  // Create AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("Important Links"),
-    content: Column(
-      children: [
-        Text(
-          'Lms : https://lms.nust.edu.pk/portal/',
-          style: GoogleFonts.montserrat(
-            textStyle: TextStyle(
-              fontSize: 14,
-              color: Colors.teal,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Qalam : https://qalam.nust.edu.pk/website/info',
-          style: GoogleFonts.montserrat(
-            textStyle: TextStyle(
-              fontSize: 14,
-              color: Colors.teal,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Support desk : http://support.seecs.edu.pk/',
-          style: GoogleFonts.montserrat(
-            textStyle: TextStyle(
-              fontSize: 14,
-              color: Colors.teal,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        )
-      ],
-    ),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
 }

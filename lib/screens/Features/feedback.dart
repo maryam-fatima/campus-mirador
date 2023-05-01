@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../widgets/get_feedback.dart';
+
 // This screen is made with a purpose to get the feedback from our Users , if they encounter any issue or bug
 class FeedbackScreen extends StatefulWidget {
   @override
@@ -35,6 +37,12 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double imageHeight = screenSize.height * 0.35;
+    final double buttonHeight = screenSize.height * 0.1;
+    final double avatarRadius = screenSize.width * 0.2;
+    final double buttonFontSize = screenSize.width * 0.05;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Feedback Form'),
@@ -42,7 +50,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(screenSize.width * 0.04),
           child: Form(
             key: _formKey,
             child: Column(
@@ -68,7 +76,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: screenSize.height * 0.02,
                 ),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -90,12 +98,14 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                     },
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: screenSize.height * 0.03),
                 Center(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors
-                          .teal.shade900, // set the background color to blue
+                      primary: Colors.teal.shade900,
+                      minimumSize:
+                          Size(screenSize.width * 0.4, buttonHeight * 0.7),
+                      // set the background color to blue
                     ),
                     onPressed: () {
                       handleSubmit();
@@ -113,16 +123,19 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: screenSize.height * 0.03,
                 ),
                 Divider(
                   thickness: 3,
+                ),
+                SizedBox(
+                  height: screenSize.height * 0.03,
                 ),
                 Text(
                   "Client's Feedback",
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
-                      fontSize: 19,
+                      fontSize: screenSize.width * 0.054,
                       color: Colors.teal,
                       fontWeight: FontWeight.w700,
                     ),
@@ -131,119 +144,20 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 SizedBox(
                   height: 16,
                 ),
-                getFeedback(
+                GetFeedback(
                   username: feedbackMap.keys.elementAt(1),
                   feedback: feedbackMap.values.elementAt(1),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: screenSize.height * 0.02,
                 ),
-                getFeedback(
+                GetFeedback(
                   username: feedbackMap.keys.elementAt(2),
                   feedback: feedbackMap.values.elementAt(2),
                 ),
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class getFeedback extends StatelessWidget {
-  const getFeedback({required this.username, required this.feedback});
-  final String username;
-  final String feedback;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 330,
-      height: 100,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: Colors.teal.shade400,
-      ),
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                CircleAvatar(
-                    backgroundColor: Colors.teal.shade900,
-                    radius: 15,
-                    child: Icon(
-                      Icons.account_circle_outlined,
-                      size: 10,
-                    )),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Username :   $username',
-                      style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12)),
-                    ),
-                    SizedBox(
-                      height: 7,
-                    ),
-                    Text(
-                      'Response : $feedback',
-                      maxLines: 3,
-                      style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12)),
-                    ),
-                    SizedBox(
-                      height: 7,
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellowAccent,
-                          size: 12,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellowAccent,
-                          size: 12,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellowAccent,
-                          size: 12,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellowAccent,
-                          size: 12,
-                        ),
-                        Icon(
-                          Icons.star_border,
-                          color: Colors.yellowAccent,
-                          size: 12,
-                        )
-                      ],
-                    )
-                  ],
-                )
-              ]),
-            ),
-          ],
         ),
       ),
     );

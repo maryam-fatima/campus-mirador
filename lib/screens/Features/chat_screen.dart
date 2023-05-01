@@ -71,6 +71,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text('Mirador HelpGPT'),
@@ -80,14 +82,19 @@ class _ChatScreenState extends State<ChatScreen> {
       body: Column(children: [
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(top: 10, left: 8, right: 8),
+            padding: EdgeInsets.only(
+              top: height * 0.01,
+              left: width * 0.03,
+              right: width * 0.03,
+            ),
             child: ListView.separated(
               reverse: true,
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 return _messages[index];
               },
-              separatorBuilder: (context, index) => SizedBox(height: 17),
+              separatorBuilder: (context, index) =>
+                  SizedBox(height: height * 0.02),
             ),
           ),
         ),
@@ -101,8 +108,14 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Padding customTextFieldWIdget() {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: EdgeInsets.symmetric(
+        horizontal: width * 0.03,
+        vertical: height * 0.01,
+      ),
       child: Card(
         elevation: 3,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
