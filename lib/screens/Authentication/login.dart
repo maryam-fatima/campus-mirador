@@ -29,43 +29,46 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double height = screenSize.height;
+    final double width = screenSize.width;
+
     return Scaffold(
-      backgroundColor: Color(0xFFF7F7F7),
+      backgroundColor: Color(0xFFE0E6E9),
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.fromLTRB(12, 50, 12, 40),
-          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.fromLTRB(
+              width * 0.02, height * 0.05, width * 0.02, height * 0.03),
+          padding: EdgeInsets.all(width * 0.05),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(width * 0.05),
               color: Color(0xFFE0E6E9)),
           child: Wrap(
-            spacing: 10,
+            spacing: width * 0.01,
             children: [
               Image(image: AssetImage('images/heading.png')),
               SizedBox(
-                height: 10,
+                height: height * 0.01,
               ),
               Divider(
                 color: Colors.teal.shade900,
                 //color of divider
-                height: 5,
-                //height spacing of divider
-                thickness: 3,
-                //thickness of divier line
-                indent: 25,
-                //spacing at the start of divider
-                endIndent: 25, //spacing at the end of divider
+                height: height * 0.005,
+                thickness: height * 0.003,
+                indent: width * 0.06,
+                endIndent: width * 0.06,
               ),
               SizedBox(
-                height: 40,
+                height: height * 0.04,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(75, 20, 0, 20),
+                padding: EdgeInsets.fromLTRB(
+                    width * 0.26, height * 0.02, 0, height * 0.02),
                 child: Text(
                   'Login Screen',
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                      fontSize: 17,
+                      fontSize: width * 0.05,
                       color: Colors.teal.shade900,
                       fontWeight: FontWeight.w600,
                     ),
@@ -73,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: height * 0.1,
               ),
               TextFormField(
                 validator: (textValue) {
@@ -91,9 +94,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     filled: true,
                     fillColor: Colors.white70,
                     enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(width * 0.06),
                         borderSide: BorderSide(
-                            width: 1.5, color: Colors.grey.shade500)),
+                            width: width * 0.005, color: Colors.grey.shade500)),
                     labelText: ' Email ',
                     hintText: 'Enter Your email',
                     icon: Icon(Icons.person_2_rounded)),
@@ -102,10 +105,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     _email = value;
                   });
                 },
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                style: TextStyle(
+                    fontWeight: FontWeight.w500, fontSize: width * 0.037),
               ),
               SizedBox(
-                height: 20,
+                height: height * 0.02,
               ),
               TextFormField(
                 validator: (textValue) {
@@ -118,15 +122,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     filled: true,
                     fillColor: Colors.white70,
                     enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(width * 0.06),
                         borderSide: BorderSide(
-                            width: 1.5, color: Colors.grey.shade500)),
+                            width: width * 0.005, color: Colors.grey.shade500)),
                     labelText: ' Password',
                     hintText: 'Enter Your Password',
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscureText ? Icons.visibility_off : Icons.visibility,
-                        size: 20,
+                        size: width * 0.05,
                       ),
                       onPressed: () {
                         setState(() {
@@ -140,14 +144,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     _password = value;
                   });
                 },
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                style: TextStyle(
+                    fontWeight: FontWeight.w500, fontSize: width * 0.037),
                 obscureText: true,
               ),
               SizedBox(
-                height: 12,
+                height: height * 0.01,
               ),
               Row(
                 children: [
+                  SizedBox(
+                    width: width * 0.06,
+                  ),
                   TextButton(
                     onPressed: () {
                       setState(() {
@@ -157,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Icon(
                       Icons.check_box,
                       color: update_color,
-                      weight: 10,
+                      weight: width * 0.02,
                     ),
                   ),
                   TextButton(
@@ -172,12 +180,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         textStyle: TextStyle(
                             color: update_color,
                             fontWeight: FontWeight.w600,
-                            fontSize: 11),
+                            fontSize: width * 0.03),
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 20,
+                    width: width * 0.13,
                   ),
                   TextButton(
                     onPressed: () {
@@ -191,7 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         textStyle: TextStyle(
                             color: update_color_forgot_password,
                             fontWeight: FontWeight.w600,
-                            fontSize: 11),
+                            fontSize: width * 0.03),
                       ),
                     ),
                   ),
@@ -199,6 +207,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Center(
                 child: Container(
+                  width: width * 0.37,
+                  height: height * 0.074,
                   decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       color: Colors.teal.shade500,
@@ -229,15 +239,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
-                          fontSize: 17,
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
                           letterSpacing: 2),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               Row(
                 children: [
                   Expanded(
@@ -245,10 +253,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     thickness: 2.5,
                     color: Colors.grey.shade900,
                   )),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                   Text(
-                    ' Or Connect with  ',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                    'Or Connect with',
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.04,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                   Expanded(
                       child: Divider(
                     thickness: 2.5,
@@ -257,10 +270,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: height * 0.04,
               ),
               Container(
-                padding: EdgeInsets.all(3),
+                padding: EdgeInsets.all(width * 0.01),
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     color: Colors.teal.shade500,
@@ -279,31 +292,32 @@ class _LoginScreenState extends State<LoginScreen> {
                           backgroundColor: Colors.white,
                           child: Image(
                             image: AssetImage('images/google_icon.png'),
-                            width: 30,
-                            height: 30,
+                            width: width * 0.4,
+                            height: height * 0.4,
                           ),
                         ),
                         SizedBox(
-                          width: 10,
+                          width: width * 0.07,
                         ),
                         Text(
                           "LOGIN AS VISITOR",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.05,
                               letterSpacing: 2),
                         ),
                       ],
                     )),
               ),
               SizedBox(
-                height: 10,
+                height: height * 0.016,
               ),
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(220, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(width * 0.59, 0, 0, 0),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
@@ -313,11 +327,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       },
                       child: CircleAvatar(
-                        backgroundColor: Colors.black54,
-                        radius: 30,
+                        backgroundColor: Colors.teal.shade300,
+                        radius: width * 0.1,
                         child: Image(
                           image: AssetImage('images/bot.png'),
-                          width: 99,
+                          width: width * 0.5,
                         ),
                       ),
                     ),

@@ -267,7 +267,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: height * 0.04,
               ),
               Container(
-                padding: EdgeInsets.all(3),
+                padding: EdgeInsets.all(width * 0.01),
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     color: Colors.teal.shade500,

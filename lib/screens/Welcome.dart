@@ -24,6 +24,9 @@ class WelcomePage extends StatelessWidget {
           ),
           child: Column(
             children: [
+              SizedBox(
+                height: screenHeight * 0.02,
+              ),
               Container(
                 margin: EdgeInsets.symmetric(
                   horizontal: screenWidth * 0.05,
