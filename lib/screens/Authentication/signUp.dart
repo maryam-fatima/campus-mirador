@@ -28,43 +28,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final double height = screenSize.height;
+    final double width = screenSize.width;
+
     return Scaffold(
       backgroundColor: Color(0xFFE0E6E9),
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.fromLTRB(7, 50, 12, 30),
-          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.fromLTRB(
+              width * 0.02, height * 0.05, width * 0.02, height * 0.03),
+          padding: EdgeInsets.all(width * 0.05),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(width * 0.05),
               color: Color(0xFFE0E6E9)),
           child: Wrap(
-            spacing: 6,
+            spacing: width * 0.01,
             children: [
               Image(image: AssetImage('images/heading.png')),
               SizedBox(
-                height: 10,
+                height: height * 0.02,
               ),
               Divider(
                 color: Colors.teal.shade900,
                 //color of divider
-                height: 5,
-                //height spacing of divider
-                thickness: 3,
-                //thickness of divier line
-                indent: 25,
-                //spacing at the start of divider
-                endIndent: 25, //spacing at the end of divider
+                height: height * 0.005,
+                thickness: height * 0.003,
+                indent: width * 0.06,
+                endIndent: width * 0.06,
               ),
               SizedBox(
-                height: 40,
+                height: height * 0.04,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(75, 20, 0, 20),
+                padding: EdgeInsets.fromLTRB(
+                    width * 0.3, height * 0.02, 0, height * 0.02),
                 child: Text(
                   'SignUp Screen',
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                      fontSize: 17,
+                      fontSize: width * 0.04,
                       color: Colors.teal.shade900,
                       fontWeight: FontWeight.w600,
                     ),
@@ -87,9 +90,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     filled: true,
                     fillColor: Colors.white70,
                     enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(width * 0.06),
                         borderSide: BorderSide(
-                            width: 1.5, color: Colors.grey.shade500)),
+                            width: width * 0.005, color: Colors.grey.shade500)),
                     labelText: ' Email ',
                     hintText: 'Enter Your email',
                     icon: Icon(Icons.person_2_rounded)),
@@ -98,10 +101,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     _email = value;
                   });
                 },
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                style: TextStyle(
+                    fontWeight: FontWeight.w500, fontSize: width * 0.03),
               ),
               SizedBox(
-                height: 20,
+                height: height * 0.03,
               ),
               TextFormField(
                 validator: (value) {
@@ -114,9 +118,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     filled: true,
                     fillColor: Colors.white70,
                     enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(width * 0.06),
                         borderSide: BorderSide(
-                            width: 1.5, color: Colors.grey.shade500)),
+                            width: width * 0.005, color: Colors.grey.shade500)),
                     labelText: ' Password',
                     hintText: 'Enter Your Password',
                     suffixIcon: IconButton(
@@ -136,11 +140,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     _password = value;
                   });
                 },
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                style: TextStyle(
+                    fontWeight: FontWeight.w500, fontSize: width * 0.03),
                 obscureText: true,
               ),
               SizedBox(
-                height: 20,
+                height: height * 0.03,
               ),
               TextFormField(
                 validator: (value) {
@@ -153,9 +158,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     filled: true,
                     fillColor: Colors.white70,
                     enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(width * 0.06),
                         borderSide: BorderSide(
-                            width: 1.5, color: Colors.grey.shade500)),
+                            width: width * 0.005, color: Colors.grey.shade500)),
                     labelText: ' Status ',
                     hintText: 'Enter Your Status',
                     icon: Icon(Icons.privacy_tip)),
@@ -164,7 +169,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     _status = value;
                   });
                 },
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                style: TextStyle(
+                    fontWeight: FontWeight.w500, fontSize: width * 0.03),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -183,7 +189,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Text(
                       'Already have an account ? Log In',
                       style: TextStyle(
-                          fontSize: 12,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                           color: update_color,
                           fontWeight: FontWeight.w700),
                     ),
@@ -192,11 +198,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               Center(
                 child: Container(
+                  width: width * 0.4,
+                  height: height * 0.07,
                   decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       color: Colors.teal.shade500,
                       borderRadius: BorderRadius.circular(28)),
-                  margin: EdgeInsets.only(top: 15),
+                  margin: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.01),
                   padding: EdgeInsets.all(2),
                   child: TextButton(
                     //yeh sign up wala press hai
@@ -224,15 +233,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
-                          fontSize: 17,
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
                           letterSpacing: 2),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               Row(
                 children: [
                   Expanded(
@@ -240,10 +247,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     thickness: 2.5,
                     color: Colors.grey.shade900,
                   )),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                   Text(
-                    ' Or Connect with  ',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                    'Or Connect with',
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.04,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                   Expanded(
                       child: Divider(
                     thickness: 2.5,
@@ -252,7 +264,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: height * 0.04,
               ),
               Container(
                 padding: EdgeInsets.all(3),
@@ -274,26 +286,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           backgroundColor: Colors.white,
                           child: Image(
                             image: AssetImage('images/google_icon.png'),
-                            width: 30,
-                            height: 30,
+                            width: width * 0.4,
+                            height: height * 0.4,
                           ),
                         ),
                         SizedBox(
-                          width: 8,
+                          width: width * 0.07,
                         ),
                         Text(
                           "SIGNUP AS VISITOR",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.05,
                               letterSpacing: 2),
                         ),
                       ],
                     )),
               ),
               SizedBox(
-                height: 20,
+                height: height * 0.03,
               ),
             ],
           ),

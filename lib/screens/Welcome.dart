@@ -11,6 +11,9 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Color(0xFF004D40),
       body: Center(
@@ -22,8 +25,14 @@ class WelcomePage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.fromLTRB(7, 50, 0, 0),
+                margin: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.05,
+                  vertical: screenHeight * 0.05,
+                ),
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.05,
+                  vertical: screenHeight * 0.02,
+                ),
                 child: IntrinsicHeight(
                   child: Row(
                     children: [
@@ -52,7 +61,7 @@ class WelcomePage extends StatelessWidget {
                             'CAMPUS',
                             style: GoogleFonts.montserrat(
                               textStyle: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: screenWidth * 0.075,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                   letterSpacing: 2),
@@ -62,7 +71,7 @@ class WelcomePage extends StatelessWidget {
                             'MIRADOR',
                             style: GoogleFonts.montserrat(
                               textStyle: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: screenWidth * 0.075,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                   letterSpacing: 2),
@@ -75,31 +84,36 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: screenHeight * 0.5,
               ),
-              Container(
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    color: Colors.teal.shade500,
-                    borderRadius: BorderRadius.circular(10)),
-                margin: EdgeInsets.only(top: 420),
-                padding: EdgeInsets.all(9),
-                child: TextButton(
-                  onPressed: () {
-                    // Navigation to Signup Screen
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignUpScreen()),
-                    );
-                  },
-                  child: Text(
-                    'CONTINUE',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                        fontSize: 17,
-                        letterSpacing: 2),
+              FittedBox(
+                child: Container(
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: Colors.teal.shade500,
+                      borderRadius: BorderRadius.circular(10)),
+                  margin: EdgeInsets.symmetric(
+                    horizontal: screenWidth * 0.05,
+                    vertical: screenHeight * 0.05,
+                  ),
+                  padding: EdgeInsets.all(screenWidth * 0.03),
+                  child: TextButton(
+                    onPressed: () {
+                      // Navigation to Signup Screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpScreen()),
+                      );
+                    },
+                    child: Text(
+                      'CONTINUE',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: 17,
+                          letterSpacing: 2),
+                    ),
                   ),
                 ),
               )
