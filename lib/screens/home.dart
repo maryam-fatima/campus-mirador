@@ -1,6 +1,7 @@
 // imported the required libraries
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../widgets/Container_Menu.dart';
 import 'Welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -27,6 +28,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final Size screen = MediaQuery.of(context).size;
+    final double height = screen.height;
+    final double width = screen.width;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal.shade900,
@@ -37,7 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 30, 0, 0),
+              padding: EdgeInsets.fromLTRB(
+                  width * 0.025, screen.height * 0.05, 0, 0),
               child: Column(
                 children: [
                   Align(
@@ -46,13 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Hi , User',
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                              fontSize: 17,
+                              fontSize: screen.width * 0.04,
                               color: Colors.grey.shade600,
                               fontWeight: FontWeight.w400)),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: screen.height * 0.02,
                   ),
                   Align(
                     alignment: Alignment.topLeft,
@@ -60,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Virtually visit NUST',
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                              fontSize: 19,
+                              fontSize: screen.width * 0.048,
                               color: Colors.black,
                               fontWeight: FontWeight.w600)),
                     ),
@@ -71,13 +77,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       'campus with Mirador',
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                              fontSize: 19,
+                              fontSize: screen.width * 0.048,
                               color: Colors.black,
                               fontWeight: FontWeight.w600)),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: screen.height * 0.02,
                   ),
                   TextButton(
                     onPressed: () async {
@@ -95,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: screen.height * 0.02,
                   ),
                   TextButton(
                     onPressed: () async {
@@ -114,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: screen.height * 0.02,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -141,10 +147,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.white,
-                    radius: 40,
+                    radius: width * 0.1,
                     child: Image(
                       image: AssetImage('images/feed.png'),
-                      width: 99,
+                      width: width * 0.4,
                     ),
                   ),
                 ),
@@ -158,10 +164,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.white,
-                    radius: 40,
+                    radius: width * 0.1,
                     child: Image(
                       image: AssetImage('images/bot.png'),
-                      width: 99,
+                      width: width * 0.4,
                     ),
                   ),
                 ),
@@ -169,114 +175,6 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class Container_Menu extends StatelessWidget {
-  Container_Menu(
-      {required this.image_path,
-      required this.label_text,
-      required this.label_text_description,
-      required this.video_text});
-  final String image_path;
-  final String label_text;
-  final String label_text_description;
-  final String video_text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.teal,
-      ),
-      width: 320,
-      height: 180,
-      child: Row(
-        children: [
-          SizedBox(
-            width: 20,
-          ),
-          Image(
-            image: AssetImage(image_path),
-            width: 75,
-            height: 75,
-          ),
-          SizedBox(
-            width: 25,
-          ),
-          Container(
-            width: 180,
-            height: 100,
-            decoration: BoxDecoration(color: Colors.white),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    '  ${label_text}  ',
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            color: Colors.grey.shade800,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12)),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    '   ${label_text_description}  ',
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 10)),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  width: 120,
-                  height: 30,
-                  decoration: BoxDecoration(
-                      color: Colors.teal.shade900,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Icon(
-                        FontAwesomeIcons.video,
-                        color: Colors.white,
-                        size: 10,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        ' ${video_text}',
-                        style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 8)),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
       ),
     );
   }
