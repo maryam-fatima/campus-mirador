@@ -62,12 +62,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(
-                    width * 0.3, height * 0.02, 0, height * 0.02),
+                    width * 0.26, height * 0.02, 0, height * 0.02),
                 child: Text(
                   'SignUp Screen',
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                      fontSize: width * 0.04,
+                      fontSize: width * 0.05,
                       color: Colors.teal.shade900,
                       fontWeight: FontWeight.w600,
                     ),
