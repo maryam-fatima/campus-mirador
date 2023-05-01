@@ -5,7 +5,7 @@ import '../Features/chat_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'AROverlay.dart';
+import 'AR_Overlay.dart';
 
 // This screens direct us to AR Overlay screen , where you will capture the image
 // of the building and at the real time you will get to see the AR Overlay for it

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../widgets/AlertClass.dart';
+import '../../widgets/alert_class.dart';
 import '../../widgets/footer.dart';
 
 // This screen is very important , if a user wants to see the stats of NUST and the buildings that in

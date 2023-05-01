@@ -1,6 +1,6 @@
 // imported the required libraries
 import 'package:flutter/material.dart';
-import '../../widgets/AlertClass.dart';
+import '../../widgets/alert_class.dart';
 import '../home.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'login.dart';

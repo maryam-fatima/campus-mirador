@@ -1,5 +1,5 @@
 // imported the required libraries
-import 'package:chatbot/screens/AR%20Screens/exploreMore.dart';
+import 'package:chatbot/screens/AR%20Screens/explore_more.dart';
 import 'package:flutter/material.dart';
 import '../Features/chat_screen.dart';
 import '../Features/feedback.dart';

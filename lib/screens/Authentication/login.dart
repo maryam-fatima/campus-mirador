@@ -1,10 +1,10 @@
 // imported the required libraries
 import 'package:flutter/material.dart';
-import '../../widgets/AlertClass.dart';
+import '../../widgets/alert_class.dart';
 import '../home.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../Features/HelpPage.dart';
+import '../Features/help_page.dart';
 import '../Features/chat_screen.dart';
 
 // This screen serves the purpose of Logging In the user.

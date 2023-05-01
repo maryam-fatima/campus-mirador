@@ -1,12 +1,12 @@
 // imported the required libraries
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/Container_Menu.dart';
+import '../widgets/container_menu.dart';
 import 'Welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'AR Screens/ScanBuilding.dart';
-import 'Features/viewStats.dart';
+import 'AR Screens/scan_building.dart';
+import 'Features/view_stats.dart';
 import 'Features/chat_screen.dart';
 import 'Features/feedback.dart';
 
