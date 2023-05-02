@@ -1,4 +1,5 @@
 // imported the required libraries
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/alert_class.dart';
 import '../home.dart';
@@ -25,6 +26,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String _email = "";
   String _password = "";
   String _status = "";
+
+  Future<void> checkAccountExistence() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: _email,
+              password:
+                  "password" // Provide any password here as Firebase requires a non-empty password
+              );
+
+      // If the above line of code executes without error, then the account exists
+      print("Account exists");
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        // The account does not exist
+        await FirebaseServices().signUpWithEmailAndPassword(_email, _password);
+        showAlertDialog3(context);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginScreen()));
+        print("Account does not exist");
+      } else {
+        // Some other error occurred
+        showAlertDialog4(context);
+        print("Error: ${e.code}");
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -221,13 +249,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           .hasMatch(_email)) {
                         showAlertDialog2(context);
                       } else {
-                        await FirebaseServices()
-                            .signUpWithEmailAndPassword(_email, _password);
-                        showAlertDialog3(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const LoginScreen()));
+                        checkAccountExistence();
                       }
                     },
                     child: Text(
