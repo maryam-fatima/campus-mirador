@@ -220,13 +220,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               caseSensitive: false)
                           .hasMatch(_email)) {
                         showAlertDialog2(context);
+                      } else {
+                        await FirebaseServices()
+                            .signUpWithEmailAndPassword(_email, _password);
+                        showAlertDialog3(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
                       }
-                      await FirebaseServices()
-                          .signUpWithEmailAndPassword(_email, _password);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginScreen()));
                     },
                     child: Text(
                       '  SIGN UP   ',

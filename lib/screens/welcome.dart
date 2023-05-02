@@ -87,7 +87,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: screenHeight * 0.5,
+                height: screenHeight * 0.45,
               ),
               FittedBox(
                 child: Container(
