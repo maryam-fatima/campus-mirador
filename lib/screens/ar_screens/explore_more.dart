@@ -243,7 +243,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                           fontSize: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.04,
+                                              0.034,
                                           color: Colors.teal.shade50)),
                                 )
                               ],

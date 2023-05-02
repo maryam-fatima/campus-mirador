@@ -299,7 +299,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               fontWeight: FontWeight.w500,
                               color: Colors.white,
                               fontSize:
-                                  MediaQuery.of(context).size.width * 0.05,
+                                  MediaQuery.of(context).size.width * 0.042,
                               letterSpacing: 2),
                         ),
                       ],

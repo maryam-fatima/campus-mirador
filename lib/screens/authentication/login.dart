@@ -153,9 +153,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Row(
                 children: [
-                  SizedBox(
-                    width: width * 0.06,
-                  ),
                   TextButton(
                     onPressed: () {
                       setState(() {
@@ -175,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     },
                     child: Text(
-                      'Remember',
+                      'Remember Me?',
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                             color: update_color,
@@ -185,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(
-                    width: width * 0.13,
+                    width: width * 0.04,
                   ),
                   TextButton(
                     onPressed: () {
@@ -305,7 +302,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontWeight: FontWeight.w500,
                               color: Colors.white,
                               fontSize:
-                                  MediaQuery.of(context).size.width * 0.05,
+                                  MediaQuery.of(context).size.width * 0.042,
                               letterSpacing: 2),
                         ),
                       ],

@@ -64,7 +64,7 @@ class WelcomePage extends StatelessWidget {
                             'CAMPUS',
                             style: GoogleFonts.montserrat(
                               textStyle: TextStyle(
-                                  fontSize: screenWidth * 0.075,
+                                  fontSize: screenWidth * 0.063,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                   letterSpacing: 2),
@@ -74,7 +74,7 @@ class WelcomePage extends StatelessWidget {
                             'MIRADOR',
                             style: GoogleFonts.montserrat(
                               textStyle: TextStyle(
-                                  fontSize: screenWidth * 0.075,
+                                  fontSize: screenWidth * 0.063,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                   letterSpacing: 2),
