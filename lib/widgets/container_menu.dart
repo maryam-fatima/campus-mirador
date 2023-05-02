@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Container_Menu extends StatelessWidget {
-  Container_Menu(
-      {required this.image_path,
-      required this.label_text,
-      required this.label_text_description,
-      required this.video_text});
-  final String image_path;
-  final String label_text;
-  final String label_text_description;
-  final String video_text;
+class ContainerMenu extends StatelessWidget {
+  ContainerMenu(
+      {super.key,
+      required this.imagePath,
+      required this.labelText,
+      required this.labelTextDescription,
+      required this.videoText});
+  final String imagePath;
+  final String labelText;
+  final String labelTextDescription;
+  final String videoText;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class Container_Menu extends StatelessWidget {
           ),
           Flexible(
             child: Image(
-              image: AssetImage(image_path),
+              image: AssetImage(imagePath),
               width: screenSize.width * 0.2,
               height: screenSize.width * 0.2,
             ),
@@ -44,16 +45,16 @@ class Container_Menu extends StatelessWidget {
             child: Container(
               width: screenSize.width * 0.2,
               height: screenSize.width * 0.25,
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: const BoxDecoration(color: Colors.white),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      '  ${label_text}  ',
+                      '  $labelText  ',
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
@@ -66,7 +67,7 @@ class Container_Menu extends StatelessWidget {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      '   ${label_text_description}  ',
+                      '   $labelTextDescription  ',
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
@@ -76,7 +77,7 @@ class Container_Menu extends StatelessWidget {
                       )),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Container(
@@ -87,7 +88,7 @@ class Container_Menu extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20)),
                     child: Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Icon(
@@ -95,11 +96,11 @@ class Container_Menu extends StatelessWidget {
                           color: Colors.white,
                           size: screenSize.width * 0.04,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
-                          ' ${video_text}',
+                          ' $videoText',
                           style: GoogleFonts.poppins(
                               textStyle: TextStyle(
                             color: Colors.white,

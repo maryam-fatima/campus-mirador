@@ -1,11 +1,11 @@
 // imported the required libraries
-import 'package:chatbot/screens/AR%20Screens/explore_more.dart';
+import 'package:chatbot/screens/ar_screens/explore_more.dart';
 import 'package:flutter/material.dart';
-import '../Features/chat_screen.dart';
-import '../Features/feedback.dart';
-import 'package:chatbot/screens/Welcome.dart';
+import 'package:chatbot/screens/features/chat_screen.dart';
+import 'package:chatbot/screens/features/feedback.dart';
+import 'package:chatbot/screens/welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
-import '../../controllers/dataController.dart';
+import 'package:chatbot/controllers/data_controller.dart';
 
 // This screen is responsible for displaying the AR Overlay of the building
 // that our user will be scanning at a real time
@@ -32,12 +32,12 @@ class _AROverlayState extends State<AROverlay> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal.shade900,
-        title: Text('Mirador'),
+        title: const Text('Mirador'),
       ),
       body: Column(
         children: [
           Image(
-            image: AssetImage('images/AROverlay.jpg'),
+            image: const AssetImage('images/AROverlay.jpg'),
             height: imageHeight,
             width: screenSize.width * 0.7,
           ),
@@ -49,7 +49,7 @@ class _AROverlayState extends State<AROverlay> {
             ),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ExploreMore()));
+                  MaterialPageRoute(builder: (context) => const ExploreMore()));
             },
             child: Text(
               'Explore More',
@@ -74,22 +74,25 @@ class _AROverlayState extends State<AROverlay> {
                 ),
                 onPressed: () async {
                   await FirebaseServices().googleSignOut();
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => WelcomePage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WelcomePage()));
                 },
               ),
               TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FeedbackScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const FeedbackScreen()),
                   );
                 },
                 child: CircleAvatar(
                   backgroundColor: Colors.teal.shade100,
                   radius: avatarRadius * 0.6,
                   child: Image(
-                    image: AssetImage('images/feed.png'),
+                    image: const AssetImage('images/feed.png'),
                     width: avatarRadius * 1,
                   ),
                 ),
@@ -105,7 +108,7 @@ class _AROverlayState extends State<AROverlay> {
                   backgroundColor: Colors.teal.shade100,
                   radius: avatarRadius * 0.6,
                   child: Image(
-                    image: AssetImage('images/bot.png'),
+                    image: const AssetImage('images/bot.png'),
                     width: avatarRadius * 1.4,
                   ),
                 ),

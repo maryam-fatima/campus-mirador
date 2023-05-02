@@ -1,8 +1,8 @@
 // imported the required libraries
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'screens/Welcome.dart';
-import 'screens/Features/feedback.dart';
+import 'screens/welcome.dart';
+import 'screens/features/feedback.dart';
 
 void main() async {
   // Connection to Firebase

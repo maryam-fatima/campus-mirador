@@ -1,7 +1,7 @@
 // imported the required libraries
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Authentication/signUp.dart';
+import 'authentication/signup.dart';
 
 // This is a Welcome Page that serves as the start screen to our Application -
 // Campus Mirador
@@ -15,7 +15,7 @@ class WelcomePage extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Color(0xFF004D40),
+      backgroundColor: const Color(0xFF004D40),
       body: Center(
         child: Container(
           decoration: const BoxDecoration(
@@ -39,22 +39,22 @@ class WelcomePage extends StatelessWidget {
                 child: IntrinsicHeight(
                   child: Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         backgroundColor: Colors.white,
                         radius: 50,
                         child: Image(
                           image: AssetImage('images/icon.png'),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
-                      VerticalDivider(
+                      const VerticalDivider(
                         thickness: 2,
                         width: 25,
                         color: Colors.white,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 3,
                       ),
                       Column(
@@ -109,7 +109,7 @@ class WelcomePage extends StatelessWidget {
                             builder: (context) => const SignUpScreen()),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'CONTINUE',
                       style: TextStyle(
                           fontWeight: FontWeight.w500,

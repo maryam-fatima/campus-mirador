@@ -75,7 +75,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Mirador HelpGPT'),
+        title: const Text('Mirador HelpGPT'),
         elevation: 0,
         backgroundColor: Colors.teal.shade900,
       ),
@@ -129,18 +129,18 @@ class _ChatScreenState extends State<ChatScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.2),
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintStyle: const TextStyle(fontSize: 14),
                   hintText: "Type anything",
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                       borderSide:
                           BorderSide(width: 0, style: BorderStyle.none)),
-                  contentPadding: EdgeInsets.only(left: 20),
+                  contentPadding: const EdgeInsets.only(left: 20),
                 ),
               ),
             ),
             IconButton(
               onPressed: () => sendMessage(),
-              icon: Icon(Icons.send_rounded, color: Colors.black),
+              icon: const Icon(Icons.send_rounded, color: Colors.black),
             ),
           ],
         ),

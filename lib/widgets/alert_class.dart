@@ -3,12 +3,14 @@
 import 'package:flutter/material.dart';
 
 class MyAlert extends StatelessWidget {
+  const MyAlert({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: ElevatedButton(
-        child: Text('Show alert'),
+        child: const Text('Show alert'),
         onPressed: () {
           showAlertDialog(context);
         },
@@ -20,7 +22,7 @@ class MyAlert extends StatelessWidget {
 showAlertDialog(BuildContext context) {
   // Create button
   Widget okButton = TextButton(
-    child: Text("OK"),
+    child: const Text("OK"),
     onPressed: () {
       Navigator.of(context).pop();
     },
@@ -28,8 +30,8 @@ showAlertDialog(BuildContext context) {
 
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Incorrect Credentials"),
-    content: Text("Please fill the missing fields"),
+    title: const Text("Incorrect Credentials"),
+    content: const Text("Please fill the missing fields"),
     actions: [
       okButton,
     ],
@@ -45,12 +47,14 @@ showAlertDialog(BuildContext context) {
 }
 
 class MyAlert2 extends StatelessWidget {
+  const MyAlert2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: ElevatedButton(
-        child: Text('Show alert'),
+        child: const Text('Show alert'),
         onPressed: () {
           showAlertDialog(context);
         },
@@ -62,7 +66,7 @@ class MyAlert2 extends StatelessWidget {
 showAlertDialog2(BuildContext context) {
   // Create button
   Widget okButton = TextButton(
-    child: Text("OK"),
+    child: const Text("OK"),
     onPressed: () {
       Navigator.of(context).pop();
     },
@@ -70,8 +74,8 @@ showAlertDialog2(BuildContext context) {
 
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Incorrect Credentials"),
-    content: Text("Invalid Format of Email"),
+    title: const Text("Incorrect Credentials"),
+    content: const Text("Invalid Format of Email"),
     actions: [
       okButton,
     ],

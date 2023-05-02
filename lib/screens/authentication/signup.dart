@@ -20,7 +20,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   // temp variables that will used throughout this screen
-  Color update_color = Colors.grey;
+  Color updateColor = Colors.grey;
   bool _obscureText = false;
   String _email = "";
   String _password = "";
@@ -33,7 +33,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final double width = screenSize.width;
 
     return Scaffold(
-      backgroundColor: Color(0xFFE0E6E9),
+      backgroundColor: const Color(0xFFE0E6E9),
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.fromLTRB(
@@ -41,11 +41,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           padding: EdgeInsets.all(width * 0.05),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(width * 0.05),
-              color: Color(0xFFE0E6E9)),
+              color: const Color(0xFFE0E6E9)),
           child: Wrap(
             spacing: width * 0.01,
             children: [
-              Image(image: AssetImage('images/heading.png')),
+              const Image(image: AssetImage('images/heading.png')),
               SizedBox(
                 height: height * 0.02,
               ),
@@ -95,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             width: width * 0.005, color: Colors.grey.shade500)),
                     labelText: ' Email ',
                     hintText: 'Enter Your email',
-                    icon: Icon(Icons.person_2_rounded)),
+                    icon: const Icon(Icons.person_2_rounded)),
                 onChanged: (value) {
                   setState(() {
                     _email = value;
@@ -134,7 +134,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         });
                       },
                     ),
-                    icon: Icon(Icons.lock)),
+                    icon: const Icon(Icons.lock)),
                 onChanged: (value) {
                   setState(() {
                     _password = value;
@@ -163,7 +163,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             width: width * 0.005, color: Colors.grey.shade500)),
                     labelText: ' Status ',
                     hintText: 'Enter Your Status',
-                    icon: Icon(Icons.privacy_tip)),
+                    icon: const Icon(Icons.privacy_tip)),
                 onChanged: (value) {
                   setState(() {
                     _status = value;
@@ -178,7 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   TextButton(
                     onPressed: () {
                       setState(() {
-                        update_color = Colors.teal.shade900;
+                        updateColor = Colors.teal.shade900;
                       });
                       Navigator.push(
                         context,
@@ -190,7 +190,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       'Already have an account ? Log In',
                       style: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.04,
-                          color: update_color,
+                          color: updateColor,
                           fontWeight: FontWeight.w700),
                     ),
                   )
@@ -206,7 +206,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       borderRadius: BorderRadius.circular(28)),
                   margin: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.01),
-                  padding: EdgeInsets.all(2),
+                  padding: const EdgeInsets.all(2),
                   child: TextButton(
                     //yeh sign up wala press hai
                     onPressed: () async {
@@ -226,7 +226,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginScreen()));
+                              builder: (context) => const LoginScreen()));
                     },
                     child: Text(
                       '  SIGN UP   ',
@@ -278,14 +278,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                              builder: (context) => const HomeScreen()));
                     },
                     child: Row(
                       children: [
                         CircleAvatar(
                           backgroundColor: Colors.white,
                           child: Image(
-                            image: AssetImage('images/google_icon.png'),
+                            image: const AssetImage('images/google_icon.png'),
                             width: width * 0.4,
                             height: height * 0.4,
                           ),

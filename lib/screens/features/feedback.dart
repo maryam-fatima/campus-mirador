@@ -6,6 +6,8 @@ import '../../widgets/get_feedback.dart';
 
 // This screen is made with a purpose to get the feedback from our Users , if they encounter any issue or bug
 class FeedbackScreen extends StatefulWidget {
+  const FeedbackScreen({super.key});
+
   @override
   _FeedbackScreenState createState() => _FeedbackScreenState();
 }
@@ -45,7 +47,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Feedback Form'),
+        title: const Text('Feedback Form'),
         backgroundColor: Colors.teal.shade900,
       ),
       body: SingleChildScrollView(
@@ -57,7 +59,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   color: Colors.teal.shade100,
                   child: TextFormField(
                     controller: usernameController,
@@ -79,7 +81,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   height: screenSize.height * 0.02,
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   color: Colors.teal.shade100,
                   child: TextFormField(
                     controller: feedbackController,
@@ -114,18 +116,18 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                         _formKey.currentState?.save();
                         // TODO: Save feedback to Firestore or another backend
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                               content: Text('Feedback submitted successfully')),
                         );
                       }
                     },
-                    child: Text('Submit Feedback'),
+                    child: const Text('Submit Feedback'),
                   ),
                 ),
                 SizedBox(
                   height: screenSize.height * 0.03,
                 ),
-                Divider(
+                const Divider(
                   thickness: 3,
                 ),
                 SizedBox(
@@ -141,7 +143,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 GetFeedback(

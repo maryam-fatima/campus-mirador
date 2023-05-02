@@ -1,11 +1,11 @@
 // imported all the required libraies
 import 'dart:io';
 import 'package:flutter/material.dart';
-import '../Features/chat_screen.dart';
+import '../features/chat_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'AR_Overlay.dart';
+import 'ar_overlay.dart';
 
 // This screens direct us to AR Overlay screen , where you will capture the image
 // of the building and at the real time you will get to see the AR Overlay for it
@@ -59,7 +59,7 @@ class _ScanBuildingState extends State<ScanBuilding> {
       backgroundColor: Colors.teal.shade50,
       appBar: AppBar(
         backgroundColor: Colors.teal.shade900,
-        title: Text('Mirador'),
+        title: const Text('Mirador'),
       ),
       body: Center(
         child: Container(
@@ -88,15 +88,15 @@ class _ScanBuildingState extends State<ScanBuilding> {
                       height: screenHeight * 0.3,
                       width: screenWidth * 0.8,
                     )
-                  : Text('No image selected'),
+                  : const Text('No image selected'),
               SizedBox(height: screenHeight * 0.03),
               Container(
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     color: Colors.teal.shade500,
                     borderRadius: BorderRadius.circular(5)),
-                margin: EdgeInsets.only(top: 15),
-                padding: EdgeInsets.all(2),
+                margin: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.all(2),
                 child: TextButton(
                   onPressed: () {
                     pickImage();
@@ -115,8 +115,8 @@ class _ScanBuildingState extends State<ScanBuilding> {
                     shape: BoxShape.rectangle,
                     color: Colors.teal.shade500,
                     borderRadius: BorderRadius.circular(5)),
-                margin: EdgeInsets.only(top: 15),
-                padding: EdgeInsets.all(2),
+                margin: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.all(2),
                 child: TextButton(
                   onPressed: () {
                     pickImageC();
@@ -130,7 +130,7 @@ class _ScanBuildingState extends State<ScanBuilding> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -169,7 +169,7 @@ class _ScanBuildingState extends State<ScanBuilding> {
                   child: CircleAvatar(
                     backgroundColor: Colors.teal.shade200,
                     radius: screenWidth * 0.2,
-                    child: Image(
+                    child: const Image(
                       image: AssetImage('images/bot.png'),
                       width: 99,
                     ),

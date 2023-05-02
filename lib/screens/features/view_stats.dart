@@ -8,8 +8,8 @@ import '../../widgets/footer.dart';
 // This screen is very important , if a user wants to see the stats of NUST and the buildings that in
 // our current case is SEECS UG , SEECS PG , IAEC
 
-class viewStats extends StatelessWidget {
-  viewStats({Key? key}) : super(key: key);
+class ViewStats extends StatelessWidget {
+  ViewStats({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class viewStats extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal.shade900,
-          title: Text('Mirador'),
+          title: const Text('Mirador'),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -32,23 +32,23 @@ class viewStats extends StatelessWidget {
                       SizedBox(
                         height: screenSize.height * 0.07,
                       ),
-                      peopleCount(
-                        Name: "Undergraduates",
-                        Value: 1559,
+                      const PeopleCount(
+                        name: "Undergraduates",
+                        value: 1559,
                       ),
                       SizedBox(
                         width: screenSize.width * 0.14,
                       ),
-                      peopleCount(
-                        Name: "Postgraduates",
-                        Value: 1559,
+                      const PeopleCount(
+                        name: "Postgraduates",
+                        value: 1559,
                       ),
                       SizedBox(
                         width: screenSize.width * 0.15,
                       ),
-                      peopleCount(
-                        Name: "Faculty",
-                        Value: 1559,
+                      const PeopleCount(
+                        name: "Faculty",
+                        value: 1559,
                       )
                     ],
                   ),
@@ -57,13 +57,13 @@ class viewStats extends StatelessWidget {
               SizedBox(
                 height: screenSize.height * 0.01,
               ),
-              AboutBuildingContainer(),
-              gallery(),
-              SizedBox(
+              const AboutBuildingContainer(),
+              const Gallery(),
+              const SizedBox(
                 height: 15,
               ),
-              ImportantLinks(),
-              Footer(),
+              const ImportantLinks(),
+              const Footer(),
             ],
           ),
         ));
@@ -83,7 +83,7 @@ class AboutBuildingContainer extends StatelessWidget {
       child: Column(
         children: [
           Image(
-            image: NetworkImage(
+            image: const NetworkImage(
                 'https://seecs.nust.edu.pk/wp-content/uploads/2020/05/seecs-new.jpg'),
             width: screenWidth,
           ),
@@ -103,11 +103,11 @@ class AboutBuildingContainer extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 10),
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
@@ -121,17 +121,17 @@ class AboutBuildingContainer extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 10),
             child: Align(
                 alignment: Alignment.topLeft,
-                child:
-                    ElevatedButton(onPressed: () {}, child: Text('Read More'))),
+                child: ElevatedButton(
+                    onPressed: () {}, child: const Text('Read More'))),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           )
         ],
@@ -140,10 +140,10 @@ class AboutBuildingContainer extends StatelessWidget {
   }
 }
 
-class peopleCount extends StatelessWidget {
-  final String Name;
-  final int Value;
-  const peopleCount({required this.Name, required this.Value});
+class PeopleCount extends StatelessWidget {
+  final String name;
+  final int value;
+  const PeopleCount({super.key, required this.name, required this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -153,18 +153,18 @@ class peopleCount extends StatelessWidget {
     return Column(
       children: [
         Text(
-          ('$Value'),
+          ('$value'),
           style: GoogleFonts.poppins(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               fontSize: 10,
               color: Colors.black,
             ),
           ),
         ),
         Text(
-          ('$Name'),
+          (name),
           style: GoogleFonts.poppins(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
                 fontSize: 12, color: Colors.black, fontWeight: FontWeight.w600),
           ),
         )
@@ -173,8 +173,8 @@ class peopleCount extends StatelessWidget {
   }
 }
 
-class gallery extends StatelessWidget {
-  const gallery({Key? key}) : super(key: key);
+class Gallery extends StatelessWidget {
+  const Gallery({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -209,22 +209,22 @@ class gallery extends StatelessWidget {
               SizedBox(
                 width: screenWidth * 0.04,
               ),
-              ImageWithText(
-                Url: 'images/SEECS_UG.JPG',
+              const ImageWithText(
+                url: 'images/SEECS_UG.JPG',
                 description: 'UG',
               ),
               SizedBox(
                 width: screenWidth * 0.08,
               ),
-              ImageWithText(
-                Url: 'images/SEECS_PG.JPG',
+              const ImageWithText(
+                url: 'images/SEECS_PG.JPG',
                 description: 'PG',
               ),
               SizedBox(
                 width: screenWidth * 0.08,
               ),
-              ImageWithText(
-                Url: 'images/IAEC.JPG',
+              const ImageWithText(
+                url: 'images/IAEC.JPG',
                 description: 'IAEC',
               ),
             ],
@@ -236,9 +236,10 @@ class gallery extends StatelessWidget {
 }
 
 class ImageWithText extends StatelessWidget {
-  final String Url;
+  final String url;
   final String description;
-  const ImageWithText({required this.Url, required this.description});
+  const ImageWithText(
+      {super.key, required this.url, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -249,17 +250,17 @@ class ImageWithText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Image(
-          image: AssetImage('$Url'),
+          image: AssetImage(url),
           width: 100,
           height: 100,
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Text(
-          '$description',
+          description,
           style: GoogleFonts.montserrat(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               fontSize: 14,
               color: Colors.black,
               fontWeight: FontWeight.w500,
@@ -284,7 +285,7 @@ class ImportantLinks extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Align(
@@ -306,19 +307,19 @@ class ImportantLinks extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                LinkToLoc(
+                const LinkToLoc(
                   name: "LMS",
                 ),
                 SizedBox(
                   width: screenWidth * 0.03,
                 ),
-                LinkToLoc(
+                const LinkToLoc(
                   name: "Qalam",
                 ),
                 SizedBox(
                   width: screenWidth * 0.03,
                 ),
-                LinkToLoc(
+                const LinkToLoc(
                   name: "Support",
                 ),
               ],
@@ -334,28 +335,28 @@ class ImportantLinks extends StatelessWidget {
 }
 
 class LinkToLoc extends StatelessWidget {
-  const LinkToLoc({required this.name});
+  const LinkToLoc({super.key, required this.name});
   final String name;
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(left: 20),
+        margin: const EdgeInsets.only(left: 20),
         decoration: BoxDecoration(
           color: Colors.teal.shade900,
           borderRadius: BorderRadius.circular(5),
         ),
         width: 90,
         height: 70,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Center(
           child: TextButton(
             onPressed: () {
               showAlertDialog(context);
             },
             child: Text(
-              '$name',
+              name,
               style: GoogleFonts.poppins(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 13,
                   color: Colors.white,
                 ),

@@ -4,8 +4,8 @@ import '../../widgets/alert_class.dart';
 import '../home.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../Features/help_page.dart';
-import '../Features/chat_screen.dart';
+import '../features/help_page.dart';
+import '../features/chat_screen.dart';
 
 // This screen serves the purpose of Logging In the user.
 // It provides the user with two options
@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final double width = screenSize.width;
 
     return Scaffold(
-      backgroundColor: Color(0xFFE0E6E9),
+      backgroundColor: const Color(0xFFE0E6E9),
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.fromLTRB(
@@ -42,11 +42,11 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: EdgeInsets.all(width * 0.05),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(width * 0.05),
-              color: Color(0xFFE0E6E9)),
+              color: const Color(0xFFE0E6E9)),
           child: Wrap(
             spacing: width * 0.01,
             children: [
-              Image(image: AssetImage('images/heading.png')),
+              const Image(image: AssetImage('images/heading.png')),
               SizedBox(
                 height: height * 0.01,
               ),
@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: width * 0.005, color: Colors.grey.shade500)),
                     labelText: ' Email ',
                     hintText: 'Enter Your email',
-                    icon: Icon(Icons.person_2_rounded)),
+                    icon: const Icon(Icons.person_2_rounded)),
                 onChanged: (value) {
                   setState(() {
                     _email = value;
@@ -138,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       },
                     ),
-                    icon: Icon(Icons.lock)),
+                    icon: const Icon(Icons.lock)),
                 onChanged: (value) {
                   setState(() {
                     _password = value;
@@ -213,8 +213,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: BoxShape.rectangle,
                       color: Colors.teal.shade500,
                       borderRadius: BorderRadius.circular(28)),
-                  margin: EdgeInsets.only(top: 15),
-                  padding: EdgeInsets.all(2),
+                  margin: const EdgeInsets.only(top: 15),
+                  padding: const EdgeInsets.all(2),
                   child: TextButton(
                     //yeh login wala hai
                     onPressed: () async {
@@ -232,7 +232,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                              builder: (context) => const HomeScreen()));
                     },
                     child: Text(
                       '   LOG IN   ',
@@ -284,14 +284,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                              builder: (context) => const HomeScreen()));
                     },
                     child: Row(
                       children: [
                         CircleAvatar(
                           backgroundColor: Colors.white,
                           child: Image(
-                            image: AssetImage('images/google_icon.png'),
+                            image: const AssetImage('images/google_icon.png'),
                             width: width * 0.4,
                             height: height * 0.4,
                           ),
@@ -330,7 +330,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         backgroundColor: Colors.teal.shade300,
                         radius: width * 0.1,
                         child: Image(
-                          image: AssetImage('images/bot.png'),
+                          image: const AssetImage('images/bot.png'),
                           width: width * 0.5,
                         ),
                       ),

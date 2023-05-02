@@ -3,10 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../controllers/dataController.dart';
-import '../Features/chat_screen.dart';
-import '../Features/feedback.dart';
-import 'package:chatbot/screens/Welcome.dart';
+import '../../controllers/data_controller.dart';
+import '../features/chat_screen.dart';
+import '../features/feedback.dart';
+import 'package:chatbot/screens/welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
 
 // This screen is responsible for showing the detailed information about the buildings
@@ -34,7 +34,7 @@ class _ExploreMoreState extends State<ExploreMore> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal.shade900,
-        title: Text('Mirador'),
+        title: const Text('Mirador'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -44,7 +44,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                 alignment: Alignment.topLeft,
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Text(
@@ -63,7 +63,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 8),
+                          margin: const EdgeInsets.only(left: 8),
                           color: Colors.teal.shade900,
                           width: MediaQuery.of(context).size.width * 0.26,
                           height: MediaQuery.of(context).size.width * 0.25,
@@ -78,7 +78,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '1',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -99,7 +99,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
                           width: MediaQuery.of(context).size.width * 0.26,
                           height: MediaQuery.of(context).size.width * 0.25,
@@ -114,7 +114,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '2',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -135,7 +135,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
                           width: MediaQuery.of(context).size.width * 0.26,
                           height: MediaQuery.of(context).size.width * 0.25,
@@ -150,7 +150,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '3',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -172,14 +172,14 @@ class _ExploreMoreState extends State<ExploreMore> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
                           width: MediaQuery.of(context).size.width * 0.26,
                           height: MediaQuery.of(context).size.width * 0.25,
@@ -194,7 +194,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '4',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -215,7 +215,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
                           width: MediaQuery.of(context).size.width * 0.26,
                           height: MediaQuery.of(context).size.width * 0.25,
@@ -230,7 +230,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '5',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -256,7 +256,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 value: _dataController.getLabs());
                           },
                           child: Container(
-                            margin: EdgeInsets.only(left: 10),
+                            margin: const EdgeInsets.only(left: 10),
                             color: Colors.teal.shade900,
                             width: MediaQuery.of(context).size.width * 0.26,
                             height: MediaQuery.of(context).size.width * 0.25,
@@ -266,7 +266,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '6',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -288,14 +288,14 @@ class _ExploreMoreState extends State<ExploreMore> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
                           width: MediaQuery.of(context).size.width * 0.26,
                           height: MediaQuery.of(context).size.width * 0.25,
@@ -310,7 +310,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '7',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -331,7 +331,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(left: 10),
                           color: Colors.teal.shade900,
                           width: MediaQuery.of(context).size.width * 0.26,
                           height: MediaQuery.of(context).size.width * 0.25,
@@ -346,7 +346,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '8',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -372,7 +372,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 value: _dataController.getFacultyOffice());
                           },
                           child: Container(
-                            margin: EdgeInsets.only(left: 10),
+                            margin: const EdgeInsets.only(left: 10),
                             color: Colors.teal.shade900,
                             width: MediaQuery.of(context).size.width * 0.26,
                             height: MediaQuery.of(context).size.width * 0.25,
@@ -382,7 +382,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                 Text(
                                   '9',
                                   style: GoogleFonts.montserrat(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 27,
                                           color: Colors.white)),
@@ -406,7 +406,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                     ),
                   ],
                 )),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -424,22 +424,25 @@ class _ExploreMoreState extends State<ExploreMore> {
                   ),
                   onPressed: () async {
                     await FirebaseServices().googleSignOut();
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => WelcomePage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WelcomePage()));
                   },
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => FeedbackScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const FeedbackScreen()),
                     );
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.teal.shade100,
                     radius: avatarRadius * 0.5,
                     child: Image(
-                      image: AssetImage('images/feed.png'),
+                      image: const AssetImage('images/feed.png'),
                       width: avatarRadius * 1,
                     ),
                   ),
@@ -456,7 +459,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                     backgroundColor: Colors.teal.shade100,
                     radius: avatarRadius * 0.5,
                     child: Image(
-                      image: AssetImage('images/bot.png'),
+                      image: const AssetImage('images/bot.png'),
                       width: avatarRadius * 1.4,
                     ),
                   ),
@@ -471,12 +474,14 @@ class _ExploreMoreState extends State<ExploreMore> {
 }
 
 class MyAlert extends StatelessWidget {
+  const MyAlert({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: ElevatedButton(
-        child: Text('Show alert'),
+        child: const Text('Show alert'),
         onPressed: () {
           showAlertDialog(context, value: _dataController.getData());
         },
@@ -488,7 +493,7 @@ class MyAlert extends StatelessWidget {
 showAlertDialog(BuildContext context, {required Future<String> value}) {
   // Create button
   Widget okButton = TextButton(
-    child: Text("OK"),
+    child: const Text("OK"),
     onPressed: () {
       Navigator.of(context).pop();
     },
@@ -496,17 +501,17 @@ showAlertDialog(BuildContext context, {required Future<String> value}) {
 
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Explore More Data"),
+    title: const Text("Explore More Data"),
     content: FutureBuilder<String>(
       future: value,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else if (snapshot.hasData) {
           return Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: SingleChildScrollView(
                 child: Column(
               children: [
@@ -516,7 +521,8 @@ showAlertDialog(BuildContext context, {required Future<String> value}) {
                     children: <TextSpan>[
                       TextSpan(
                         text: snapshot.data!,
-                        style: TextStyle(fontSize: 16, color: Colors.black),
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),
@@ -525,7 +531,7 @@ showAlertDialog(BuildContext context, {required Future<String> value}) {
             )),
           );
         } else {
-          return Text('No data found');
+          return const Text('No data found');
         }
       },
     ),
