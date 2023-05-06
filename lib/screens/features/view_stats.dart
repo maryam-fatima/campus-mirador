@@ -214,14 +214,14 @@ class Gallery extends StatelessWidget {
                 description: 'UG',
               ),
               SizedBox(
-                width: screenWidth * 0.08,
+                width: screenWidth * 0.04,
               ),
               const ImageWithText(
                 url: 'images/SEECS_PG.JPG',
                 description: 'PG',
               ),
               SizedBox(
-                width: screenWidth * 0.08,
+                width: screenWidth * 0.04,
               ),
               const ImageWithText(
                 url: 'images/IAEC.JPG',

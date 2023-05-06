@@ -1,4 +1,5 @@
 // imported the required libraries
+import 'package:chatbot/screens/features/chat_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/welcome.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomePage(),
+      home: WelcomePage(),
     );
   }
 }
