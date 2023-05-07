@@ -16,57 +16,39 @@ class ViewStats extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.teal.shade900,
-          title: const Text('Mirador'),
+      appBar: AppBar(
+        backgroundColor: Colors.teal.shade900,
+        title: const Text('Mirador'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              color: Colors.teal.shade100,
+              padding: EdgeInsets.only(left: screenSize.width * 0.03),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  PeopleCount(name: "Undergraduates", value: 1559),
+                  PeopleCount(name: "Postgraduates", value: 1559),
+                  PeopleCount(name: "Faculty", value: 1559)
+                ],
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.01,
+            ),
+            const AboutBuildingContainer(),
+            const Gallery(),
+            const SizedBox(
+              height: 15,
+            ),
+            const ImportantLinks(),
+            const Footer(),
+          ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                color: Colors.teal.shade100,
-                child: Padding(
-                  padding: EdgeInsets.only(left: screenSize.width * 0.03),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        height: screenSize.height * 0.07,
-                      ),
-                      const PeopleCount(
-                        name: "Undergraduates",
-                        value: 1559,
-                      ),
-                      SizedBox(
-                        width: screenSize.width * 0.14,
-                      ),
-                      const PeopleCount(
-                        name: "Postgraduates",
-                        value: 1559,
-                      ),
-                      SizedBox(
-                        width: screenSize.width * 0.15,
-                      ),
-                      const PeopleCount(
-                        name: "Faculty",
-                        value: 1559,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: screenSize.height * 0.01,
-              ),
-              const AboutBuildingContainer(),
-              const Gallery(),
-              const SizedBox(
-                height: 15,
-              ),
-              const ImportantLinks(),
-              const Footer(),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -91,18 +73,8 @@ class AboutBuildingContainer extends StatelessWidget {
             height: screenHeight * 0.02,
           ),
           Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              ' Welcome to Seecs',
-              style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                  fontSize: screenWidth * 0.05,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
-          ),
+              alignment: Alignment.topLeft,
+              child: _heading('Welcome to SEECS', screenWidth)),
           const SizedBox(
             height: 5,
           ),
@@ -147,9 +119,6 @@ class PeopleCount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Column(
       children: [
         Text(
@@ -189,44 +158,17 @@ class Gallery extends StatelessWidget {
             height: screenHeight * 0.01,
           ),
           Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              ' Departments',
-              style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                  fontSize: screenWidth * 0.05,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
-          ),
+              alignment: Alignment.topLeft,
+              child: _heading('Departments', screenWidth)),
           SizedBox(
             height: screenHeight * 0.01,
           ),
           Row(
-            children: [
-              SizedBox(
-                width: screenWidth * 0.04,
-              ),
-              const ImageWithText(
-                url: 'images/SEECS_UG.JPG',
-                description: 'UG',
-              ),
-              SizedBox(
-                width: screenWidth * 0.04,
-              ),
-              const ImageWithText(
-                url: 'images/SEECS_PG.JPG',
-                description: 'PG',
-              ),
-              SizedBox(
-                width: screenWidth * 0.04,
-              ),
-              const ImageWithText(
-                url: 'images/IAEC.JPG',
-                description: 'IAEC',
-              ),
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              ImageWithText(url: 'images/SEECS_UG.JPG', description: 'UG'),
+              ImageWithText(url: 'images/SEECS_PG.JPG', description: 'PG'),
+              ImageWithText(url: 'images/IAEC.JPG', description: 'IAEC'),
             ],
           ),
         ],
@@ -243,9 +185,6 @@ class ImageWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -289,43 +228,22 @@ class ImportantLinks extends StatelessWidget {
               height: 5,
             ),
             Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                ' Important Links',
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: screenWidth * 0.05,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
+                alignment: Alignment.topLeft,
+                child: _heading('Important Links', screenWidth)),
             SizedBox(
               height: screenHeight * 0.02,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const LinkToLoc(
-                  name: "LMS",
-                ),
-                SizedBox(
-                  width: screenWidth * 0.03,
-                ),
-                const LinkToLoc(
-                  name: "Qalam",
-                ),
-                SizedBox(
-                  width: screenWidth * 0.03,
-                ),
-                const LinkToLoc(
-                  name: "Support",
-                ),
+              children: const [
+                LinkToLoc(name: "LMS"),
+                LinkToLoc(name: "Qalam"),
+                LinkToLoc(name: "Support"),
               ],
             ),
             SizedBox(
-              height: screenHeight * 0.03,
+              height: screenHeight * 0.02,
             )
           ],
         ),
@@ -365,4 +283,17 @@ class LinkToLoc extends StatelessWidget {
           ),
         ));
   }
+}
+
+Widget _heading(String text, final screenWidth) {
+  return Text(
+    text,
+    style: GoogleFonts.montserrat(
+      textStyle: TextStyle(
+        fontSize: screenWidth * 0.05,
+        color: Colors.black,
+        fontWeight: FontWeight.w700,
+      ),
+    ),
+  );
 }

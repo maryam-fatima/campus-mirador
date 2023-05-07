@@ -57,7 +57,7 @@ class DataController {
     String text = '';
     final firstFloor = data?['floor']?['first'];
     final secondFloor = data?['floor']?['second'];
-    final classrooms = firstFloor['classrooms'] + secondFloor['classroons'];
+    final classrooms = firstFloor['classrooms'] + secondFloor['classrooms'];
     text += 'Classrooms: ${classrooms?.toString() ?? 'N/A'}\n';
     return text;
   }
@@ -126,10 +126,10 @@ class DataController {
         .get();
     final data = document.data();
     String text = '';
-    final firstFloor = data?['floor']?['first'];
-    final secondFloor = data?['floor']?['second'];
-    final classrooms = firstFloor['classrooms'] + secondFloor['classroons'];
-    text += 'Classrooms: ${classrooms?.toString() ?? 'N/A'}\n';
+    final firstFloor = data?['floor']?['first'] ?? [];
+    final secondFloor = data?['floor']?['second'] ?? [];
+    final facilities = firstFloor['facilities'] + secondFloor['facilities'];
+    text += 'Facilities: ${facilities?.toString() ?? 'N/A'}\n';
     return text;
   }
 
@@ -140,10 +140,11 @@ class DataController {
         .get();
     final data = document.data();
     String text = '';
-    final firstFloor = data?['floor']?['first'];
-    final secondFloor = data?['floor']?['second'];
-    final classrooms = firstFloor['classrooms'] + secondFloor['classroons'];
-    text += 'Classrooms: ${classrooms?.toString() ?? 'N/A'}\n';
+    final firstFloor = data?['floor']?['first'] ?? [];
+    final secondFloor = data?['floor']?['second'] ?? [];
+    final facultyOffices =
+        '\nFirst Floor: ${firstFloor['facultyOffices']}\nSecond Floor: ${secondFloor['facultyOffices']}\n';
+    text += 'Faculty Offices: ${facultyOffices ?? 'N/A'}\n';
     return text;
   }
 

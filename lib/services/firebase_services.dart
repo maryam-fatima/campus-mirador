@@ -29,7 +29,7 @@ class FirebaseServices {
     }
   }
 
-  signInWithGoogle() async {
+  Future<bool> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
@@ -40,6 +40,9 @@ class FirebaseServices {
             accessToken: googleSignInAuthentication.accessToken,
             idToken: googleSignInAuthentication.idToken);
         await _auth.signInWithCredential(authCredential);
+        return true; // Return true if sign-in is successful
+      } else {
+        return false; // Return false if user cancels sign-in process
       }
     } on FirebaseAuthException catch (e) {
       print(e.message);

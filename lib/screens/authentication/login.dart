@@ -281,19 +281,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       final result =
                           await FirebaseServices().signInWithGoogle();
 
-                      // Wait for a short delay to allow the user to choose their account.
-                      await Future.delayed(Duration(seconds: 1));
-
-                      // If the user didn't select an account, cancel the sign-in process.
-                      if (result == null) {
+                      // If the user didn't select an account, return and do not navigate to the HomeScreen.
+                      if (result == false) {
                         return;
                       }
 
-                      // Navigate to the home screen if the sign-in process was successful.
+                      // Wait for a short delay to allow the user to choose their account.
+                      await Future.delayed(const Duration(seconds: 1));
+
+                      // Navigate to the HomeScreen.
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
-                      );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
                     },
                     child: Row(
                       children: [

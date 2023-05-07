@@ -74,6 +74,10 @@ class _AROverlayState extends State<AROverlay> {
                 ),
                 onPressed: () async {
                   await FirebaseServices().googleSignOut();
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pop(context);
                   Navigator.push(
                       context,
                       MaterialPageRoute(

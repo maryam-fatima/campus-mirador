@@ -298,11 +298,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     borderRadius: BorderRadius.circular(28)),
                 child: TextButton(
                     onPressed: () async {
-                      await FirebaseServices().signInWithGoogle();
+                      // Start the Google sign-in process.
+                      final result =
+                          await FirebaseServices().signInWithGoogle();
+
+                      // If the user didn't select an account, return and do not navigate to the HomeScreen.
+                      if (result == false) {
+                        return;
+                      }
+
+                      // Wait for a short delay to allow the user to choose their account.
+                      await Future.delayed(const Duration(seconds: 1));
+
+                      // Navigate to the HomeScreen.
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen()));
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()),
+                      );
                     },
                     child: Row(
                       children: [

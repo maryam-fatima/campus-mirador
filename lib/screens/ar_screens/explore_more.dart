@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../controllers/data_controller.dart';
@@ -424,6 +422,11 @@ class _ExploreMoreState extends State<ExploreMore> {
                   ),
                   onPressed: () async {
                     await FirebaseServices().googleSignOut();
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
