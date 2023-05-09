@@ -116,6 +116,7 @@ class DataController {
     if (department != null) {
       text += 'Department: $department\n';
     }
+
     return text;
   }
 
@@ -218,7 +219,7 @@ class DataController {
       text = "This is not a location but $query is a Dean at SEECS UG.";
       return text;
     } else {
-      String data = await getDept('seecsUg');
+      String data = await getDept('D');
       if (data.contains(query)) {
         text = "$query is a Department at SEECS UG .";
         return text;
