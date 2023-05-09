@@ -1,7 +1,9 @@
+import 'package:chatbot/controllers/data_controller_pg.dart';
+import 'package:chatbot/screens/ar_screens/explore_more_ug.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../controllers/data_controller.dart';
+import '../../controllers/data_controller_ug.dart';
 import '../features/chat_screen.dart';
 import '../features/feedback.dart';
 import 'package:chatbot/screens/welcome.dart';
@@ -10,17 +12,17 @@ import 'package:chatbot/services/firebase_services.dart';
 // This screen is responsible for showing the detailed information about the buildings
 // The data is saved in the firebase and we are fetching data using the Model class
 
-DataController _dataController =
-    DataController(); // Create an instance of DataController
+DataControllerPG _dataController =
+    DataControllerPG(); // Create an instance of DataController
 
-class ExploreMore extends StatefulWidget {
-  const ExploreMore({Key? key}) : super(key: key);
+class ExploreMorePG extends StatefulWidget {
+  const ExploreMorePG({Key? key}) : super(key: key);
 
   @override
-  State<ExploreMore> createState() => _ExploreMoreState();
+  State<ExploreMorePG> createState() => _ExploreMorePGState();
 }
 
-class _ExploreMoreState extends State<ExploreMore> {
+class _ExploreMorePGState extends State<ExploreMorePG> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -29,7 +31,7 @@ class _ExploreMoreState extends State<ExploreMore> {
     final double avatarRadius = screenSize.width * 0.2;
     final double buttonFontSize = screenSize.width * 0.05;
     final TextEditingController _controller = TextEditingController();
-    final prediction = 'seecsUg';
+    final prediction = 'seecsPg';
     String _searchTerm = '';
 
     void _handleSearch(String value) {
@@ -52,7 +54,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 10,
+                      height: 8,
                     ),
                     Container(
                       color: Colors.teal.shade50,
@@ -62,7 +64,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                       child: TextFormField(
                         controller: _controller,
                         decoration: InputDecoration(
-                          hintText: 'Search a location i.e CR-1',
+                          hintText: 'Search a location i.e IT office',
                           hintStyle: TextStyle(
                               color: Colors.teal.shade900,
                               fontWeight: FontWeight.w500),
@@ -78,16 +80,24 @@ class _ExploreMoreState extends State<ExploreMore> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
+                      height: MediaQuery.of(context).size.height * 0.02,
                     ),
-                    Text(
-                      'SEECS UG Block',
-                      style: GoogleFonts.montserrat(
-                          textStyle: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.06,
-                              color: Colors.teal.shade600)),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ExploreMoreUG()));
+                      },
+                      child: Text(
+                        'SEECS PG BLOCK',
+                        style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.06,
+                                color: Colors.teal.shade600)),
+                      ),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.03,
@@ -103,7 +113,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getDean(prediction));
+                                  value: _dataController
+                                      .getBasementFloors(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +128,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                                           color: Colors.white)),
                                 ),
                                 Text(
-                                  'Dean',
+                                  'Basement',
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
@@ -139,8 +150,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value:
-                                      _dataController.getHistory(prediction));
+                                  value: _dataController
+                                      .getGroundFloor(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -153,15 +164,18 @@ class _ExploreMoreState extends State<ExploreMore> {
                                           fontSize: 27,
                                           color: Colors.white)),
                                 ),
+                                SizedBox(
+                                  height: 10,
+                                ),
                                 Text(
-                                  'History',
+                                  'Ground Floor',
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.04,
+                                              0.032,
                                           color: Colors.teal.shade50)),
                                 )
                               ],
@@ -519,7 +533,7 @@ class _ExploreMoreState extends State<ExploreMore> {
 
 class MyAlert extends StatelessWidget {
   const MyAlert({super.key});
-  final prediction = 'seecsUg';
+  final prediction = 'seecsPg';
   @override
   Widget build(BuildContext context) {
     return Padding(

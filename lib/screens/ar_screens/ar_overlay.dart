@@ -1,11 +1,13 @@
 // imported the required libraries
-import 'package:chatbot/screens/ar_screens/explore_more.dart';
+import 'package:chatbot/screens/ar_screens/explore_more_ug.dart';
 import 'package:flutter/material.dart';
 import 'package:chatbot/screens/features/chat_screen.dart';
 import 'package:chatbot/screens/features/feedback.dart';
 import 'package:chatbot/screens/welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
-import 'package:chatbot/controllers/data_controller.dart';
+import 'package:chatbot/controllers/data_controller_ug.dart';
+
+import 'explore_more_pg.dart';
 
 // This screen is responsible for displaying the AR Overlay of the building
 // that our user will be scanning at a real time
@@ -18,8 +20,8 @@ class AROverlay extends StatefulWidget {
 }
 
 class _AROverlayState extends State<AROverlay> {
-  DataController _dataController =
-      DataController(); // Create an instance of DataController
+  DataControllerUG _dataController =
+      DataControllerUG(); // Create an instance of DataController
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +50,10 @@ class _AROverlayState extends State<AROverlay> {
                   buttonHeight * 0.7), // set the background color to blue
             ),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ExploreMore()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ExploreMoreUG()));
             },
             child: Text(
               'Explore More',

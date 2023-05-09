@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class DataController {
+class DataControllerUG {
   Future<String> getFirstFloors(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
