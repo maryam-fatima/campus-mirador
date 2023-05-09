@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DataController {
-  Future<String> getFirstFloors() async {
+  Future<String> getFirstFloors(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -24,10 +24,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getSecondFloor() async {
+  Future<String> getSecondFloor(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -48,10 +48,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getClassrooms() async {
+  Future<String> getClassrooms(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -62,10 +62,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getLabs() async {
+  Future<String> getLabs(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -75,10 +75,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getDean() async {
+  Future<String> getDean(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -89,10 +89,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getHistory() async {
+  Future<String> getHistory(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -104,10 +104,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getDept() async {
+  Future<String> getDept(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -119,10 +119,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getFacility() async {
+  Future<String> getFacility(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -133,10 +133,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getFacultyOffice() async {
+  Future<String> getFacultyOffice(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     String text = '';
@@ -148,10 +148,10 @@ class DataController {
     return text;
   }
 
-  Future<String> getData() async {
+  Future<String> getData(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
-        .doc('seecsUg')
+        .doc(documentName)
         .get();
     final data = document.data();
     final firstFloor = data?['floor']?['first'];

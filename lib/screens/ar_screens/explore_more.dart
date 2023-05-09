@@ -29,6 +29,7 @@ class _ExploreMoreState extends State<ExploreMore> {
     final double avatarRadius = screenSize.width * 0.2;
     final double buttonFontSize = screenSize.width * 0.05;
 
+    final prediction = 'seecsUg';
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal.shade900,
@@ -68,7 +69,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getDean());
+                                  value: _dataController.getDean(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +105,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getHistory());
+                                  value: _dataController.getHistory(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -140,7 +141,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getDept());
+                                  value: _dataController.getDept(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -184,7 +185,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getFirstFloors());
+                                  value: _dataController.getFirstFloors(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -220,7 +221,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getSecondFloor());
+                                  value: _dataController.getSecondFloor(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -251,7 +252,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                         TextButton(
                           onPressed: () {
                             showAlertDialog(context,
-                                value: _dataController.getLabs());
+                                value: _dataController.getLabs(prediction));
                           },
                           child: Container(
                             margin: const EdgeInsets.only(left: 10),
@@ -300,7 +301,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getClassrooms());
+                                  value: _dataController.getClassrooms(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -336,7 +337,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getFacility());
+                                  value: _dataController.getFacility(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -367,7 +368,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                         TextButton(
                           onPressed: () {
                             showAlertDialog(context,
-                                value: _dataController.getFacultyOffice());
+                                value: _dataController.getFacultyOffice(prediction));
                           },
                           child: Container(
                             margin: const EdgeInsets.only(left: 10),
@@ -478,7 +479,7 @@ class _ExploreMoreState extends State<ExploreMore> {
 
 class MyAlert extends StatelessWidget {
   const MyAlert({super.key});
-
+  final prediction='seecsUg';
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -486,7 +487,7 @@ class MyAlert extends StatelessWidget {
       child: ElevatedButton(
         child: const Text('Show alert'),
         onPressed: () {
-          showAlertDialog(context, value: _dataController.getData());
+          showAlertDialog(context, value: _dataController.getData(prediction));
         },
       ),
     );
