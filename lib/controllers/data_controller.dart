@@ -133,21 +133,6 @@ class DataController {
     return text;
   }
 
-  Future<String> getFacultyOffice(String documentName) async {
-    final document = await FirebaseFirestore.instance
-        .collection('buildings')
-        .doc(documentName)
-        .get();
-    final data = document.data();
-    String text = '';
-    final firstFloor = data?['floor']?['first'] ?? [];
-    final secondFloor = data?['floor']?['second'] ?? [];
-    final facultyOffices =
-        '\nFirst Floor: ${firstFloor['facultyOffices']}\nSecond Floor: ${secondFloor['facultyOffices']}\n';
-    text += 'Faculty Offices: ${facultyOffices ?? 'N/A'}\n';
-    return text;
-  }
-
   Future<String> getData(String documentName) async {
     final document = await FirebaseFirestore.instance
         .collection('buildings')
@@ -202,6 +187,98 @@ class DataController {
       text += 'Faculty Offices: ${facultyOffices?.toString() ?? 'N/A'}\n';
     }
 
+    return text;
+  }
+
+  Future<String> getFacultyOffice(String documentName) async {
+    final document = await FirebaseFirestore.instance
+        .collection('buildings')
+        .doc(documentName)
+        .get();
+    final data = document.data();
+    String text = '';
+    final firstFloor = data?['floor']?['first'] ?? [];
+    final secondFloor = data?['floor']?['second'] ?? [];
+    final facultyOffices =
+        '\nFirst Floor: ${firstFloor['facultyOffices']}\nSecond Floor: ${secondFloor['facultyOffices']}\n';
+    text += 'Faculty Offices: ${facultyOffices ?? 'N/A'}\n';
+    return text;
+  }
+
+  Future<String> fetchData() async {
+    // simulate fetching data from an API
+    await Future.delayed(Duration(seconds: 2));
+    return "This is some data that we fetched from an API.";
+  }
+
+  Future<String> searchForString(String query) async {
+    String text = '';
+    String data = await getDean('seecsUg');
+    if (data.contains(query)) {
+      text = "This is not a location but $query is a Dean at SEECS UG.";
+      return text;
+    } else {
+      String data = await getDept('seecsUg');
+      if (data.contains(query)) {
+        text = "$query is a Department at SEECS UG .";
+        return text;
+      } else {
+        String data = await getFirstFloors('seecsUg');
+        if (data.contains(query)) {
+          text = "You can find $query on First Floor & ";
+          String data = await getClassrooms('seecsUg');
+          if (data.contains(query)) {
+            text = text + " Specifically it is a Classroom in SEECS UG ";
+          } else {
+            String data = await getLabs('seecsUg');
+            if (data.contains(query)) {
+              text = text + "Specifically it is a Lab in SEECS UG ";
+            } else {
+              String data = await getFacility('seecsUg');
+              if (data.contains(query)) {
+                text = text +
+                    "Specifically it is a Fcailitiy you can get in SEECS UG ";
+              } else {
+                String data = await getFacultyOffice('seecsUg');
+                if (data.contains(query)) {
+                  text =
+                      text + "Specifically it is a Faculty Office in SEECS UG ";
+                }
+              }
+            }
+          }
+          return text;
+        } else {
+          String data = await getSecondFloor('seecsUg');
+          if (data.contains(query)) {
+            text = "You can find $query on Second Floor & ";
+            String data = await getClassrooms('seecsUg');
+            if (data.contains(query)) {
+              text = text + "Specifically it is a Classroom in SEECS UG";
+            } else {
+              String data = await getLabs('seecsUg');
+              if (data.contains(query)) {
+                text = text + "Specifically it is a Lab in SEECS UG";
+              } else {
+                String data = await getFacility('seecsUg');
+                if (data.contains(query)) {
+                  text = text +
+                      "Specifically it is a Fcailitiy you can get in SEECS UG ";
+                } else {
+                  String data = await getFacultyOffice('seecsUg');
+                  if (data.contains(query)) {
+                    text = text +
+                        "Specifically it is a Faculty Office in SEECS UG";
+                  }
+                }
+              }
+            }
+            return text;
+          }
+        }
+      }
+    }
+    text = "$query Not Found in SEECS UG Block.";
     return text;
   }
 }

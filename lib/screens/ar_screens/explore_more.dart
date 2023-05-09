@@ -28,8 +28,16 @@ class _ExploreMoreState extends State<ExploreMore> {
     final double buttonHeight = screenSize.height * 0.1;
     final double avatarRadius = screenSize.width * 0.2;
     final double buttonFontSize = screenSize.width * 0.05;
-
+    final TextEditingController _controller = TextEditingController();
     final prediction = 'seecsUg';
+    String _searchTerm = '';
+
+    void _handleSearch(String value) {
+      setState(() {
+        _searchTerm = value;
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal.shade900,
@@ -44,7 +52,33 @@ class _ExploreMoreState extends State<ExploreMore> {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 30,
+                      height: 10,
+                    ),
+                    Container(
+                      color: Colors.teal.shade50,
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      child: TextFormField(
+                        controller: _controller,
+                        decoration: InputDecoration(
+                          hintText: 'Search a location i.e CR-1',
+                          hintStyle: TextStyle(
+                              color: Colors.teal.shade900,
+                              fontWeight: FontWeight.w500),
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.search),
+                            onPressed: () {
+                              showSearchData(context,
+                                  value: _dataController
+                                      .searchForString(_controller.text));
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
                     ),
                     Text(
                       'SEECS UG Block',
@@ -56,7 +90,7 @@ class _ExploreMoreState extends State<ExploreMore> {
                               color: Colors.teal.shade600)),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.05,
+                      height: MediaQuery.of(context).size.height * 0.03,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -105,7 +139,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getHistory(prediction));
+                                  value:
+                                      _dataController.getHistory(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -185,7 +220,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getFirstFloors(prediction));
+                                  value: _dataController
+                                      .getFirstFloors(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -221,7 +257,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getSecondFloor(prediction));
+                                  value: _dataController
+                                      .getSecondFloor(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -301,7 +338,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getClassrooms(prediction));
+                                  value: _dataController
+                                      .getClassrooms(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -337,7 +375,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                           child: TextButton(
                             onPressed: () {
                               showAlertDialog(context,
-                                  value: _dataController.getFacility(prediction));
+                                  value:
+                                      _dataController.getFacility(prediction));
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -368,7 +407,8 @@ class _ExploreMoreState extends State<ExploreMore> {
                         TextButton(
                           onPressed: () {
                             showAlertDialog(context,
-                                value: _dataController.getFacultyOffice(prediction));
+                                value: _dataController
+                                    .getFacultyOffice(prediction));
                           },
                           child: Container(
                             margin: const EdgeInsets.only(left: 10),
@@ -479,7 +519,7 @@ class _ExploreMoreState extends State<ExploreMore> {
 
 class MyAlert extends StatelessWidget {
   const MyAlert({super.key});
-  final prediction='seecsUg';
+  final prediction = 'seecsUg';
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -527,6 +567,73 @@ showAlertDialog(BuildContext context, {required Future<String> value}) {
                         text: snapshot.data!,
                         style:
                             const TextStyle(fontSize: 16, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )),
+          );
+        } else {
+          return const Text('No data found');
+        }
+      },
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showSearchData(BuildContext context, {required Future<String> value}) {
+  // Create button
+  Widget okButton = TextButton(
+    child: const Text("OK"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text(
+      "Search Info",
+      style: TextStyle(
+          fontSize: 25,
+          color: Colors.teal.shade900,
+          fontWeight: FontWeight.w800),
+    ),
+    content: FutureBuilder<String>(
+      future: value,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        } else if (snapshot.hasData) {
+          return Padding(
+            padding: const EdgeInsets.all(16),
+            child: SingleChildScrollView(
+                child: Column(
+              children: [
+                RichText(
+                  text: TextSpan(
+                    style: DefaultTextStyle.of(context).style,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: snapshot.data!,
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.teal.shade900,
+                            fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
