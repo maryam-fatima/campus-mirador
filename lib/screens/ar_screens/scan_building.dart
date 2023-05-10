@@ -5,6 +5,7 @@ import '../features/chat_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import '../video_screen.dart';
 import 'ar_overlay.dart';
 
 // This screens direct us to AR Overlay screen , where you will capture the image
@@ -82,13 +83,6 @@ class _ScanBuildingState extends State<ScanBuilding> {
                   ),
                 ),
               ),
-              image != null
-                  ? Image.file(
-                      image!,
-                      height: screenHeight * 0.3,
-                      width: screenWidth * 0.8,
-                    )
-                  : const Text('No image selected'),
               SizedBox(height: screenHeight * 0.03),
               Container(
                 decoration: BoxDecoration(
@@ -97,36 +91,24 @@ class _ScanBuildingState extends State<ScanBuilding> {
                     borderRadius: BorderRadius.circular(5)),
                 margin: const EdgeInsets.only(top: 15),
                 padding: const EdgeInsets.all(2),
-                child: TextButton(
-                  onPressed: () {
-                    pickImage();
-                  },
-                  child: Text(
-                    'Select from Gallery',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                        fontSize: screenWidth * 0.04),
-                  ),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    color: Colors.teal.shade500,
-                    borderRadius: BorderRadius.circular(5)),
-                margin: const EdgeInsets.only(top: 15),
-                padding: const EdgeInsets.all(2),
-                child: TextButton(
-                  onPressed: () {
-                    pickImageC();
-                  },
-                  child: Text(
-                    'Select from Camera',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                        fontSize: screenWidth * 0.04),
+                child: SizedBox(
+                  width: 150,
+                  child: TextButton(
+                    onPressed: () {
+                      //pickImageC();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const VideoScreen()),
+                      );
+                    },
+                    child: Text(
+                      'Scan the building',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: screenWidth * 0.04),
+                    ),
                   ),
                 ),
               ),
@@ -138,22 +120,28 @@ class _ScanBuildingState extends State<ScanBuilding> {
                     shape: BoxShape.rectangle,
                     color: Colors.teal.shade900,
                     borderRadius: BorderRadius.circular(5)),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AROverlay()),
-                    );
-                  },
-                  child: Text(
-                    'Move to AR Overlay',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                        fontSize: screenWidth * 0.04),
+                child: SizedBox(
+                  width: 150,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AROverlay()),
+                      );
+                    },
+                    child: Text(
+                      'AR Overlay',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: screenWidth * 0.04),
+                    ),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 25,
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(
