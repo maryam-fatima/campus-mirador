@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/alert_class.dart';
+import '../../widgets/alert_class_statistics.dart';
 import '../../widgets/footer.dart';
 
 // This screen is very important , if a user wants to see the stats of NUST and the buildings that in
@@ -65,8 +66,7 @@ class AboutBuildingContainer extends StatelessWidget {
       child: Column(
         children: [
           Image(
-            image: const NetworkImage(
-                'https://seecs.nust.edu.pk/wp-content/uploads/2020/05/seecs-new.jpg'),
+            image: AssetImage('images/SEECSmain.jpg'),
             width: screenWidth,
           ),
           SizedBox(
@@ -269,7 +269,7 @@ class LinkToLoc extends StatelessWidget {
         child: Center(
           child: TextButton(
             onPressed: () {
-              showAlertDialog(context);
+              showAlertDialogLink(context);
             },
             child: Text(
               name,
