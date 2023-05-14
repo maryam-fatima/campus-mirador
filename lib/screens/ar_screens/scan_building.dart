@@ -92,7 +92,7 @@ class _ScanBuildingState extends State<ScanBuilding> {
                 margin: const EdgeInsets.only(top: 15),
                 padding: const EdgeInsets.all(2),
                 child: SizedBox(
-                  width: 150,
+                  width: 180,
                   child: TextButton(
                     onPressed: () {
                       //pickImageC();
@@ -121,7 +121,7 @@ class _ScanBuildingState extends State<ScanBuilding> {
                     color: Colors.teal.shade900,
                     borderRadius: BorderRadius.circular(5)),
                 child: SizedBox(
-                  width: 150,
+                  width: 180,
                   child: TextButton(
                     onPressed: () {
                       Navigator.push(

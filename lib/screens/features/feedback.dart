@@ -19,7 +19,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   final TextEditingController feedbackController = TextEditingController();
 
   Map<String, String> feedbackMap = {
-    'JohnDoe': 'Great job on the app!',
+    'Kaynat Sajid': 'Great job on the app!',
     'Urooj Raza': 'Very Helpful',
     'Zainab Ghauri': ' user-friendly App',
   };
@@ -143,19 +143,33 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 16,
-                ),
-                GetFeedback(
-                  username: feedbackMap.keys.elementAt(1),
-                  feedback: feedbackMap.values.elementAt(1),
-                ),
                 SizedBox(
-                  height: screenSize.height * 0.02,
-                ),
-                GetFeedback(
-                  username: feedbackMap.keys.elementAt(2),
-                  feedback: feedbackMap.values.elementAt(2),
+                  height: 600,
+                  child: ListView.builder(
+                    itemCount: feedbackMap.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        color: Colors.teal.shade50,
+                        margin: EdgeInsets.symmetric(
+                            vertical: 8.0), // add margin here
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            child: Icon(
+                              Icons.person,
+                              color: Colors.white,
+                            ),
+                            backgroundColor: Colors.teal.shade900,
+                          ),
+                          title: Text(
+                            '${feedbackMap.keys.elementAt(index)}',
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          subtitle:
+                              Text('${feedbackMap.values.elementAt(index)}'),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
