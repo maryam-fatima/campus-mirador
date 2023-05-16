@@ -409,7 +409,7 @@ class DataControllerPG {
           }
         }
       }
-      text = "$query Not Found in SEECS UG Block.";
+      text = "$query Not Found in SEECS PG Block.";
       return text;
     }
   }

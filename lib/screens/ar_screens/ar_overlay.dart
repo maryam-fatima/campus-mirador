@@ -7,6 +7,7 @@ import 'package:chatbot/screens/welcome.dart';
 import 'package:chatbot/services/firebase_services.dart';
 import 'package:chatbot/controllers/data_controller_ug.dart';
 
+import 'explore_more_iaec.dart';
 import 'explore_more_pg.dart';
 
 // This screen is responsible for displaying the AR Overlay of the building
@@ -53,7 +54,7 @@ class _AROverlayState extends State<AROverlay> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const ExploreMoreUG()));
+                      builder: (context) => const ExploreMoreIAEC()));
             },
             child: Text(
               'Explore More',
