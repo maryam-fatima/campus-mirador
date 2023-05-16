@@ -1,10 +1,13 @@
 // imported the required libraries
+import 'package:chatbot/screens/ar_screens/explore_more_iaec.dart';
+import 'package:chatbot/screens/ar_screens/explore_more_ug.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/alert_class.dart';
 import '../../widgets/alert_class_statistics.dart';
 import '../../widgets/footer.dart';
+import '../ar_screens/explore_more_pg.dart';
 
 // This screen is very important , if a user wants to see the stats of NUST and the buildings that in
 // our current case is SEECS UG , SEECS PG , IAEC
@@ -101,7 +104,14 @@ class AboutBuildingContainer extends StatelessWidget {
             child: Align(
                 alignment: Alignment.topLeft,
                 child: ElevatedButton(
-                    onPressed: () {}, child: const Text('Read More'))),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.teal.shade900,
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      'Read More',
+                      style: TextStyle(color: Colors.white),
+                    ))),
           ),
           const SizedBox(
             height: 10,
@@ -165,10 +175,34 @@ class Gallery extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              ImageWithText(url: 'images/SEECS_UG.JPG', description: 'UG'),
-              ImageWithText(url: 'images/SEECS_PG.JPG', description: 'PG'),
-              ImageWithText(url: 'images/IAEC.JPG', description: 'IAEC'),
+            children: [
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ExploreMoreUG()));
+                  },
+                  child: ImageWithText(
+                      url: 'images/SEECS_UG.JPG', description: 'UG')),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ExploreMorePG()));
+                  },
+                  child: ImageWithText(
+                      url: 'images/SEECS_PG.JPG', description: 'PG')),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ExploreMoreIAEC()));
+                  },
+                  child: ImageWithText(
+                      url: 'images/IAEC.JPG', description: 'IAEC')),
             ],
           ),
         ],
