@@ -21,3 +21,4 @@ On the Explore More screen, you can access comprehensive information about the b
 The Chatbot screen in Campus Mirador is a user-friendly interface that utilizes ChatGPT to provide quick and accurate answers to any questions or concerns users may have about the campus, classrooms, or faculty offices.
 ### Feedback Screen
 The feedback screen in Campus Mirador allows users to provide their valuable comments and suggestions to help us improve our application. We appreciate all feedback and use it to continuously enhance our app to better meet the needs of our users.
+
