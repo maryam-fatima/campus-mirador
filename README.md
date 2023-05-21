@@ -1,5 +1,5 @@
 # Campus Mirador
-The Mirador app had a user-friendly interface with 8 screens, and the display was easy to read with clearly distinguishable colors and a font that was large enough for individuals with farsightedness. The information was presented in a straightforward and easy-to-understand manner to accommodate users of all types. The app was cross-platform, with an android version being developed. The front-end of the project was completed with consideration for human-computer interaction, making it easily accessible for users of all ages.
+The Mirador app has a user-friendly interface with 8 screens, and the display was easy to read with clearly distinguishable colors and a font that was large enough for individuals with farsightedness. The information was presented in a straightforward and easy-to-understand manner to accommodate users of all types. The app was cross-platform, with an android version being developed. The front-end of the project was completed with consideration for human-computer interaction, making it easily accessible for users of all ages.
 ## Screen Descriptions
 ### Welcome Screen
 The initial screen of the Campus Mirador app displays a Welcome page with introductory text. Upon clicking the "Continue" button, the user is directed to the Sign Up page.
